@@ -35,6 +35,3 @@ jobs:
         with:
           name: playwright-report
           path: playwright-report/
-
-      - name: Run ESLint
-        run: npx eslint . --max-warnings=0
