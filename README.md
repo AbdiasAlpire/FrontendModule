@@ -79,11 +79,11 @@ refactor: restructure test utilities without changing functionality
 3. Work on your test and commit using Conventional Commits:
     ```bash
     git add .
-    git commit -m "feat(TC1234): add login test for invalid credentials"
+    git commit -m "feat: add login test for invalid credentials"
     ```
 4. Push your branch to remote:
     ```bash
-    git push origin feature/TC1234-login
+    git push origin TC1234-login
     ```
 5. Open a Pull Request and request review.
 
