@@ -2,14 +2,17 @@ import { Page } from '@playwright/test';
 import { PeoplesLocators } from '../locators/PeoplesLocators';
 
 export class PeoplesPage {
-  constructor(private page: Page) {}
+  constructor(public page: Page) {}
 
   async goto() {
-    await this.page.goto('/people');
+    await this.page.goto('/people', { waitUntil: 'networkidle' });
   }
 
-  async addNewPerson(){
-    await this.page.locator(PeoplesLocators.addNewPersonButton).click();
+  get addNewPersonButton() {
+    return this.page.locator(PeoplesLocators.addNewPersonButton);
+  }
+  async clickAddNewPerson(){
+    await this.addNewPersonButton.click();
   }
 
   async fillFirstName(firstname: string) {

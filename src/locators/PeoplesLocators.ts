@@ -1,5 +1,5 @@
 export const PeoplesLocators={
-   addNewPersonButton : '//div[@id="root"]//div[3]//button[1]',
+   addNewPersonButton : 'div[id="root"] div:nth-child(3) button:nth-child(1)',
    firstName : '//input[@id="firstname"]',
    lastName: '//input[@id="lastname"]',
    summitBtn: '//button[@type="submit"]',
