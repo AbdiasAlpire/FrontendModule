@@ -10,14 +10,12 @@ test.beforeEach(async ({ loginPage }) => {
   await loginPage.fillPassword(process.env.USER_PASSWORD || '');
   await loginPage.clickLoginButton();
   await loginPage.page.locator('text=Dashboard').waitFor({ state: 'visible', timeout: 10000 });
-  
 });
-
 
 test('TC005: Verify the creation of a person and successfully add that person as a customer', async({peoplesPage}) =>{
     await peoplesPage.goto();
     await peoplesPage.addNewPersonButton;
-    await peoplesPage.clickAddNewPerson();
+    await peoplesPage.clickAddNewPersonButton();
     await peoplesPage.fillFirstName("testPlaywright");
     await peoplesPage.fillLastName("testPlaywright");
     await peoplesPage.clickSumitButton();

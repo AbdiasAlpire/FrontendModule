@@ -11,20 +11,20 @@ export class PeoplesPage {
   get addNewPersonButton() {
     return this.page.locator(PeoplesLocators.addNewPersonButton);
   }
-  async clickAddNewPerson(){
+  async clickAddNewPersonButton(){
     await this.addNewPersonButton.click();
   }
 
   async fillFirstName(firstname: string) {
-    await this.page.locator(PeoplesLocators.firstName).fill(firstname);
+    await this.page.locator(PeoplesLocators.firstNameField).fill(firstname);
   }
 
   async fillLastName(lastname: string) {
-    await this.page.locator(PeoplesLocators.lastName).fill(lastname);
+    await this.page.locator(PeoplesLocators.lastNameField).fill(lastname);
   }
 
   async clickSumitButton() {
-    await this.page.locator(PeoplesLocators.summitBtn).click();
+    await this.page.locator(PeoplesLocators.summitButton).click();
   }
 
   async clickCloseButton(){
