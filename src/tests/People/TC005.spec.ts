@@ -21,4 +21,3 @@ test('TC005: Verify the creation of a person and successfully add that person as
     await peoplesPage.clickSumitButton();
     await peoplesPage.clickCloseButton();
 })
-

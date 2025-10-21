@@ -16,7 +16,7 @@ export class CustomerPage {
   }
 
   async typeCustomer() {
-    await this.page.locator(CustomerLocators.typeCustomer).click();
+    await this.page.locator(CustomerLocators.typeCustomerBox).click();
   }
 
   async clickCloseButton(){
