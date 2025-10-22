@@ -2,7 +2,7 @@ import { Page } from '@playwright/test';
 import { LoginLocators } from '../locators/LoginLocators';
 
 export class LoginPage {
-  constructor(private page: Page) {}
+  constructor(public page: Page) {}
 
   async goto() {
     await this.page.goto('/login');
