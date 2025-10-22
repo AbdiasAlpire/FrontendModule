@@ -1,22 +1,21 @@
-import { expect, test } from "../../fixtures/LoginPageFixture";
+import { mergeTests } from "@playwright/test";
+import { test as companyTest, expect } from "../../fixtures/CompanyPageFixture";
+import { test as loggedInTest } from "../../fixtures/LoggedInFixture";
 import * as dotenv from "dotenv";
-import { CompanyPage } from "../../pages/CompanyPage";
+
+const test = mergeTests(loggedInTest, companyTest);
 
 dotenv.config();
 
-test.beforeEach(async ({ loginPage }) => {
-  await loginPage.goto();
-  await loginPage.fillUsernameInput(process.env.USER_EMAIL || '');
-  await loginPage.fillPasswordInput(process.env.USER_PASSWORD || '');
-  await loginPage.clickLoginButton();
-  await loginPage.page.locator('text=Dashboard').waitFor({ state: 'visible', timeout: 10000 });
-});
-
-test('TC004: Verify error messages display when mandatory fields are empty', async ({ page }) => {
-  const companyPage = new CompanyPage(page);
+test("TC004: Verify error messages display when mandatory fields are empty", async ({
+  companyPage,
+}) => {
   await companyPage.goTo();
-  await companyPage.addCompanyButton.click();
-  await companyPage.submitButton.click();
-  await expect(companyPage.emptyNameMessage).toBeVisible();
-  await expect(companyPage.emptyEmailMessage).toBeVisible();
+  await companyPage.clickAddNewCompanyButton();
+  await companyPage.clickSubmitButton();
+  await companyPage.page.waitForTimeout(2000);
+  const actualNameErrorMes = await companyPage.getNameErrorMesage();
+  const actualEmailErrorMes = await companyPage.getEmailErrorMesage();
+  await expect(actualNameErrorMes).toBeVisible();
+  await expect(actualEmailErrorMes).toBeVisible();
 });
