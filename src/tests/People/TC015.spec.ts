@@ -5,8 +5,8 @@ dotenv.config();
 
 test.beforeEach(async ({ loginPage }) => {
   await loginPage.goto();
-  await loginPage.fillUsername(process.env.USER_EMAIL || '');
-  await loginPage.fillPassword(process.env.USER_PASSWORD || '');
+  await loginPage.fillUsernameInput(process.env.USER_EMAIL || '');
+  await loginPage.fillPasswordInput(process.env.USER_PASSWORD || '');
   await loginPage.clickLoginButton();
   await loginPage.page.locator('text=Dashboard').waitFor({ state: 'visible', timeout: 10000 });
 })
