@@ -12,9 +12,11 @@ export class PeoplesPage {
     return this.page.locator(PeoplesLocators.addNewPersonButton);
   }
 
-  async clickAddNewPersonButton() {
-    await this.addNewPersonButton.click();
-  }
+async clickAddNewPersonButton() {
+   const button = this.addNewPersonButton;
+   await button.waitFor({ state: "visible" });
+   await button.click();
+ }
 
   async fillFirstName(firstname: string) {
     await this.page.locator(PeoplesLocators.firstNameField).fill(firstname);
