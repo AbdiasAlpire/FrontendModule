@@ -5,22 +5,23 @@ export class CompanyPage {
   constructor(private page: Page) {}
 
   async goTo() {
-    await this.page.goto('/company');
+    await this.page.waitForTimeout(5000);
+    await this.page.goto("/company");
   }
 
-  get addCompanyButton() {
-    return this.page.locator(CompanyLocators.addCompanyButton);
+  async clickAddNewCompanyButton() {
+    await this.page.locator(CompanyLocators.addCompanyButton).click();
   }
 
-  get submitButton() {
-    return this.page.locator(CompanyLocators.submitButton);
+  async clickSubmitButton() {
+    await this.page.locator(CompanyLocators.submitButton).click();
   }
 
-  get emptyNameMessage() {
-    return this.page.locator(CompanyLocators.nameEmptyMessage);
+  async getNameErrorMesage() {
+    return this.page.locator(`xpath=${CompanyLocators.nameEmptyMessage}`);
   }
 
-  get emptyEmailMessage() {
+  async getEmailErrorMesage() {
     return this.page.locator(CompanyLocators.emailEmptyMessage);
   }
 }

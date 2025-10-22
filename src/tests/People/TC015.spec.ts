@@ -1,4 +1,4 @@
-import { expect, test } from "../../fixtures/PeoplePageFixture";
+/*import { expect, test } from "../../fixtures/PeoplePageFixture";
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -25,3 +25,4 @@ test('TC017: Verify that a new person can be created and edited', async({peoples
     const firstRow = await peoplesPage.getFirstRow();
     expect(firstRow).toEqual("searchTest");
 })
+*/

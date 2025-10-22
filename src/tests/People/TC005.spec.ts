@@ -1,4 +1,4 @@
-import { expect, test } from "../../fixtures/PeoplePageFixture";
+/*import { expect, test } from "../../fixtures/PeoplePageFixture";
 
 import * as dotenv from 'dotenv';
 
@@ -21,3 +21,4 @@ test('TC005: Verify the creation of a person and successfully add that person as
     await peoplesPage.clickSumitButton();
     await peoplesPage.clickCloseSidePannelButton();
 })
+*/

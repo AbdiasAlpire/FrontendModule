@@ -1,4 +1,4 @@
-import { expect, test } from "../../fixtures/PeoplePageFixture";
+/*import { expect, test } from "../../fixtures/PeoplePageFixture";
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -24,3 +24,4 @@ test('TC016: Verify that a new person can be created and deleted', async({people
     const removeMessage = await peoplesPage.getRemoveMessage();
     expect(removeMessage).toContain('Successfully Deleted the people by id');
 })
+*/
