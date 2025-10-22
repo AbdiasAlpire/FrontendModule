@@ -26,4 +26,9 @@ export class LoginPage {
     return await this.page.locator(LoginLocators.toastErrorDescription).innerText();
   }
 
+  async getLogInTitle(timeout = 5000): Promise<string> {
+    const signInTitle = this.page.locator(LoginLocators.signInTitle);
+    await signInTitle.waitFor({ state: "visible", timeout });
+    return await signInTitle.innerText();
+  }
 }
