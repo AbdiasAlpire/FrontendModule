@@ -1,5 +1,6 @@
 export const DashboardLocators = {
+  dashboardBody: '/html[1]/body[1]/div[1]/div[2]',
   avatarProfile: '//*[@id="root"]/div[2]/div/header/span[1]',
-  userMenuDropdown: '/html/body/div[2]/div',
-  logoutButton: '/html/body/div[2]/div/ul/li[6]/span[2]',
+  userMenuDropdown: `//div[@class='ant-dropdown css-1lk2pln ant-dropdown-placement-bottomRight']`,
+  logoutButton: 'a[href="/logout"]',
 };

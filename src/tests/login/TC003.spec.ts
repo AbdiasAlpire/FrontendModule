@@ -1,24 +1,18 @@
-import { mergeTests } from '@playwright/test';
-import { test as loginTest, expect } from "../../fixtures/LoginPageFixture";
-import { test as dashboardTest } from "../../fixtures/DashboardPageFixture";
+import { expect, test } from "../../fixtures/PeoplePageFixture";
+import * as dotenv from 'dotenv';
 
-const test = mergeTests(loginTest, dashboardTest);
-
-test('TC003: Verify logout functionality', async ({ loginPage, dashboardPage }) => {
+test.beforeEach(async ({ loginPage, dashboardPage }) => {
   await loginPage.goto();
-  await loginPage.fillUsername('ddcrene@gmail.com');
-  await loginPage.fillPassword('abc123456789');
+  await loginPage.fillUsername(process.env.USER_EMAIL || '');
+  await loginPage.fillPassword(process.env.USER_PASSWORD || '');
   await loginPage.clickLoginButton();
-  await (loginPage as any).page.waitForTimeout(5000);
-  
-  // Verificar que estás en el dashboard
-  await expect((dashboardPage as any).page).toHaveURL("/");
-  
-  // Hacer logout
+  await dashboardPage.waitForDashboardToLoad();
+  await expect(dashboardPage.page).toHaveURL("/");
+});
+
+test('TC003: Verify logout functionality', async ({ dashboardPage, loginPage }) => {
   await dashboardPage.clickAvatarProfile();
-    await (loginPage as any).page.waitForTimeout(2000);
+  await dashboardPage.waitForUserMenuDropdownToLoad();//Only waits for dropdown to be visible
   await dashboardPage.clickLogoutButton();
-  
-  // Verificar que regresaste al login
-  await expect((loginPage as any).page).toHaveURL("/login");
+  await expect(loginPage.page).toHaveURL("/login");
 });

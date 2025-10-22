@@ -2,18 +2,21 @@ import { Page } from '@playwright/test';
 import { DashboardLocators } from '../locators/DashboardLocators';
 
 export class DashboardPage {
-  constructor(private page: Page) {}
+  constructor(public page: Page) {}
 
-  async goto() {
-    await this.page.goto('/');
+  async waitForDashboardToLoad() {
+    await this.page.locator(`xpath=${DashboardLocators.dashboardBody}`).waitFor({ state: 'visible', timeout: 10000 });
   }
 
   async clickAvatarProfile() {
     await this.page.locator(`xpath=${DashboardLocators.avatarProfile}`).click();
   }
 
-  //Can be refactored separating wait and click actions if needed
-  async clickLogoutButton(timeout = 1000) {
-    await this.page.locator(`xpath=${DashboardLocators.logoutButton}`).click();
+  async waitForUserMenuDropdownToLoad() {
+    await this.page.locator(`xpath=${DashboardLocators.userMenuDropdown}`).waitFor({ state: 'visible', timeout: 3000 });
+  }
+
+  async clickLogoutButton() {
+    await this.page.click(DashboardLocators.logoutButton);
   }
 }
