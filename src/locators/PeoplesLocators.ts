@@ -3,7 +3,7 @@ export const PeoplesLocators={
    firstNameField : '//input[@id="firstname"]',
    lastNameField: '//input[@id="lastname"]',
    summitButton: '//button[@type="submit"]',
-   closeSidePanel: '//button[@aria-label="Close"]',
+   closeSidePanel: '(//*[name()="svg"][@fill-rule="evenodd"])[2]',
    closeSuccessMessage: '//a[@aria-label="Close"]',
    removePersonButton: 'div[class="TopCollapseBox"] button:nth-child(1)',
    removeConfirmationButton: '"OK"',
@@ -15,4 +15,6 @@ export const PeoplesLocators={
    //summitEditButton: 'button[type="submit"]',
    editConfirmationContainer: '.ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable',
    editConfirmationDescription: '.ant-notification-notice-description',
+   searchTextBox: 'input[placeholder="search"]',
+   firstNameRowValue : 'tbody tr:nth-child(2) td:nth-child(1)'
 };

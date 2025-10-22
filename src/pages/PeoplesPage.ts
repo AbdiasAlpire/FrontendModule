@@ -28,7 +28,7 @@ export class PeoplesPage {
     await this.page.locator(PeoplesLocators.summitButton).click();
   }
 
-  async clickCloseButton(){
+  async clickCloseSidePannelButton(){
     await this.page.locator(PeoplesLocators.closeSidePanel).click();
   }
 
@@ -73,6 +73,18 @@ export class PeoplesPage {
     const confirmation = this.page.locator(PeoplesLocators.editConfirmationContainer);
     await confirmation.waitFor({state: 'visible', timeout});
     return this.page.locator(PeoplesLocators.editConfirmationDescription).innerText();
+  }
+
+  async clickSearchPersonBox(){
+    await this.page.locator(PeoplesLocators.searchTextBox).click();
+  }
+
+  async typePersonFirstName(personName : string){
+    await this.page.locator(PeoplesLocators.searchTextBox).fill(personName);
+  }
+
+  async getFirstRow(){
+    return await this.page.locator(PeoplesLocators.firstNameRowValue).innerText();
   }
 
 }
