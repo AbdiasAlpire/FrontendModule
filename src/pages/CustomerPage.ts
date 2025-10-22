@@ -22,5 +22,4 @@ export class CustomerPage {
   async clickCloseButton(){
     await this.page.locator(CustomerLocators.peopleCreated).click();
   }
-
 }

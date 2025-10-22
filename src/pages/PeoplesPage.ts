@@ -11,7 +11,7 @@ export class PeoplesPage {
   get addNewPersonButton() {
     return this.page.locator(PeoplesLocators.addNewPersonButton);
   }
-  
+
   async clickAddNewPersonButton(){
     await this.addNewPersonButton.click();
   }
@@ -33,9 +33,9 @@ export class PeoplesPage {
   }
 
   async getCreationMessage(timeout = 5000) {
-  const toast = this.page.locator(PeoplesLocators.successCreationContainer);
-  await toast.waitFor({ state: 'visible', timeout });
-  return this.page.locator(PeoplesLocators.successCreationDescription).innerText();
+    const toast = this.page.locator(PeoplesLocators.successCreationContainer);
+    await toast.waitFor({ state: 'visible', timeout });
+    return this.page.locator(PeoplesLocators.successCreationDescription).innerText();
   }
 
   async clickCloseSuccessMessage(){
@@ -54,7 +54,7 @@ export class PeoplesPage {
   async clickRemoveConfirmationButton(){
     await this.page.locator(PeoplesLocators.removeConfirmationButton).click();
   }
-  
+
   async getRemoveMessage(timeout = 5000){
     const confirmation = this.page.locator(PeoplesLocators.removeConfirmationContainer);
     await confirmation.waitFor({state: 'visible', timeout});

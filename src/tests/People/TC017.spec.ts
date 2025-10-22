@@ -25,5 +25,4 @@ test('TC017: Verify that a new person can be created and edited', async({peoples
     await peoplesPage.clickSumitButton();
     const editedMessage = await peoplesPage.getEditMessage();
    expect(editedMessage).toContain('we update this document');
-    
 })
