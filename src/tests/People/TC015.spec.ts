@@ -15,14 +15,13 @@ test('TC017: Verify that a new person can be created and edited', async({peoples
     await peoplesPage.goto();
     await peoplesPage.addNewPersonButton;
     await peoplesPage.clickAddNewPersonButton();
-    await peoplesPage.fillFirstName("testPlaywright");
-    await peoplesPage.fillLastName("testPlaywright");
+    await peoplesPage.fillFirstName("searchTest");
+    await peoplesPage.fillLastName("searchTest");
     await peoplesPage.clickSumitButton();
     await peoplesPage.clickCloseSuccessMessage();
-    await peoplesPage.clickEditButton();
-    await peoplesPage.fillFirstName("edited");
-    await peoplesPage.fillLastName("edited");
-    await peoplesPage.clickSumitButton();
-    const editedMessage = await peoplesPage.getEditMessage();
-   expect(editedMessage).toContain('we update this document');
+    await peoplesPage.clickCloseSidePannelButton();
+    await peoplesPage.clickSearchPersonBox();
+    await peoplesPage.typePersonFirstName("searchTest");
+    const firstRow = await peoplesPage.getFirstRow();
+    expect(firstRow).toEqual("searchTest");
 })
