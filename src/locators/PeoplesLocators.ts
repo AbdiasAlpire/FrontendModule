@@ -4,6 +4,15 @@ export const PeoplesLocators={
    lastNameField: '//input[@id="lastname"]',
    summitButton: '//button[@type="submit"]',
    closeSidePanel: '//button[@aria-label="Close"]',
-   toastErrorContainer: '.ant-notification-notice-error',
-   toastErrorDescription: '.ant-notification-notice-description'
+   closeSuccessMessage: '//a[@aria-label="Close"]',
+   removePersonButton: 'div[class="TopCollapseBox"] button:nth-child(1)',
+   removeConfirmationButton: '"OK"',
+   removeConfirmationContainer: '.ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable',
+   removeConfirmationDescription: '.ant-notification-notice-description',
+   successCreationContainer: '.ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable',
+   successCreationDescription: '.ant-notification-notice-description',
+   editPersonButton : 'body div button:nth-child(2)',
+   //summitEditButton: 'button[type="submit"]',
+   editConfirmationContainer: '.ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable',
+   editConfirmationDescription: '.ant-notification-notice-description',
 };
