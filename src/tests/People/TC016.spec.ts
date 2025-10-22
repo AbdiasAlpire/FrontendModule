@@ -17,6 +17,7 @@ test("TC016: Verify that a new person can be created and deleted", async ({
   await peoplesPage.clickCloseSuccessMessage();
   await peoplesPage.clickRemovePersonButton();
   await peoplesPage.clickRemoveConfirmationButton();
+  await peoplesPage.page.waitForTimeout(2000);
   const removeMessage = await peoplesPage.getRemoveMessage();
   expect(removeMessage).toContain("Successfully Deleted the people by id");
 });

@@ -16,5 +16,6 @@ test("TC005: Verify the creation of a person and successfully add that person as
   await peoplesPage.fillFirstName("testPlaywright");
   await peoplesPage.fillLastName("testPlaywright");
   await peoplesPage.clickSumitButton();
+  await peoplesPage.page.waitForTimeout(2000);
   await peoplesPage.clickCloseSidePannelButton();
 });
