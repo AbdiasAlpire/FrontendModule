@@ -11,4 +11,8 @@ export const PeoplesLocators={
    removeConfirmationDescription: '.ant-notification-notice-description',
    successCreationContainer: '.ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable',
    successCreationDescription: '.ant-notification-notice-description',
+   editPersonButton : 'body div button:nth-child(2)',
+   //summitEditButton: 'button[type="submit"]',
+   editConfirmationContainer: '.ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable',
+   editConfirmationDescription: '.ant-notification-notice-description',
 };

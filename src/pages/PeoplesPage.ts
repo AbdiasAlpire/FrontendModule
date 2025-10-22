@@ -42,7 +42,7 @@ export class PeoplesPage {
     await this.page.locator(PeoplesLocators.closeSuccessMessage).click();
   }
 
-    async waitForRemoveButton(timeout = 10000) {
+  async waitForRemoveButton(timeout = 10000) {
     await this.page.locator('button:has-text("remove")').waitFor({ state: 'visible', timeout });
   }
 
@@ -59,6 +59,20 @@ export class PeoplesPage {
     const confirmation = this.page.locator(PeoplesLocators.removeConfirmationContainer);
     await confirmation.waitFor({state: 'visible', timeout});
     return this.page.locator(PeoplesLocators.removeConfirmationDescription).innerText();
+  }
+
+  async waitForEditButton(timeout = 10000) {
+    await this.page.locator('button:has-text("edit")').waitFor({ state: 'visible', timeout });
+  }
+
+  async clickEditButton(){
+    await this.waitForEditButton();
+    await this.page.locator(PeoplesLocators.editPersonButton).click();
+  }
+  async getEditMessage(timeout = 5000){
+    const confirmation = this.page.locator(PeoplesLocators.editConfirmationContainer);
+    await confirmation.waitFor({state: 'visible', timeout});
+    return this.page.locator(PeoplesLocators.editConfirmationDescription).innerText();
   }
 
 }
