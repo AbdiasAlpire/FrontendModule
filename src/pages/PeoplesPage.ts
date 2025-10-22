@@ -86,5 +86,4 @@ export class PeoplesPage {
   async getFirstRow(){
     return await this.page.locator(PeoplesLocators.firstNameRowValue).innerText();
   }
-
 }
