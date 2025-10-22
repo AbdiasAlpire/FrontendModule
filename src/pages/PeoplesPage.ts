@@ -36,5 +36,4 @@ async getToastErrorMessage(timeout = 5000) {
   await toast.waitFor({ state: 'visible', timeout });
   return this.page.locator(PeoplesLocators.toastErrorDescription).innerText();
 }
-
 }

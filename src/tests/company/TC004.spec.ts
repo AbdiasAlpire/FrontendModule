@@ -14,9 +14,9 @@ test.beforeEach(async ({ loginPage }) => {
 
 test('TC004: Verify error messages display when mandatory fields are empty', async ({ page }) => {
   const companyPage = new CompanyPage(page);
-  await companyPage.goto();
+  await companyPage.goTo();
   await companyPage.addCompanyButton.click();
-  await companyPage.sybmitButton.click();
+  await companyPage.submitButton.click();
   await expect(companyPage.emptyNameMessage).toBeVisible();
   await expect(companyPage.emptyEmailMessage).toBeVisible();
 });

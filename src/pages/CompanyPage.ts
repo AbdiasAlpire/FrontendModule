@@ -4,7 +4,7 @@ import { CompanyLocators } from "../locators/CompanyLocators";
 export class CompanyPage {
   constructor(private page: Page) {}
 
-  async goto() {
+  async goTo() {
     await this.page.goto('/company');
   }
 
@@ -12,7 +12,7 @@ export class CompanyPage {
     return this.page.locator(CompanyLocators.addCompanyButton);
   }
 
-  get sybmitButton() {
+  get submitButton() {
     return this.page.locator(CompanyLocators.submitButton);
   }
 
