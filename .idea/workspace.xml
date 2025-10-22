@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9d95f464-add3-4aae-bcbf-2e39130a3cf2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/locators/HeaderLocators.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/People/TC005.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/People/TC005.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/People/TC015.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/People/TC015.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/People/TC016.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/People/TC016.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/People/TC017.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/People/TC017.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/company/TC004.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/company/TC004.spec.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AbdiasAlpire&quot;
+  }
+}</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:AbdiasAlpire/FrontendModule.git&quot;,
+    &quot;accountId&quot;: &quot;65d69d60-ea34-4d1d-853d-7d18967012fd&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="34QBvuyc4sVbYRZftTPXpZI1FF6" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "feature/TC002-login-successful",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/frontendpw202509",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\Aqua 2024.3.1\\plugins\\javascript-base\\jsLanguageServicesImpl\\external"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9d95f464-add3-4aae-bcbf-2e39130a3cf2" name="Changes" comment="" />
+      <created>1761136148719</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1761136148719</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+</project>

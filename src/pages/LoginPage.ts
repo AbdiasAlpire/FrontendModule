@@ -8,11 +8,11 @@ export class LoginPage {
     await this.page.goto('/login');
   }
 
-  async fillUsername(username: string) {
+  async fillUsernameInput(username: string) {
     await this.page.locator(LoginLocators.emailInput).fill(username);
   }
 
-  async fillPassword(password: string) {
+  async fillPasswordInput(password: string) {
     await this.page.locator(LoginLocators.passwordInput).fill(password);
   }
 
