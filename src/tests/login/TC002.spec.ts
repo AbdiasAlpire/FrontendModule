@@ -1,19 +1,23 @@
-import { expect, test } from "../../fixtures/LoginPageFixture";
+import { mergeTests } from "@playwright/test";
+import { test as loginTest, expect } from "../../fixtures/LoginPageFixture";
+import { test as headerTest } from "../../fixtures/HeaderComponentFixture";
 import * as dotenv from "dotenv";
-import { Header } from "../../pages/Header";
+
+const test = mergeTests(loginTest, headerTest);
 
 dotenv.config();
 
-test("TC002: Verify login with valid account", async ({ page, loginPage }) => {
+test("TC002: Verify login with valid account", async ({
+  loginPage,
+  headerComponent,
+}) => {
   const userEmail = process.env.USER_EMAIL as string;
   const userPassword = process.env.USER_PASSWORD as string;
   await loginPage.goTo();
   await loginPage.fillUsernameInput(userEmail);
   await loginPage.fillPasswordInput(userPassword);
   await loginPage.clickLoginButton();
-  const header = new Header(page);
-  await expect(page).toHaveURL("/");
-  await expect(header.avatarElement).toHaveText(
-    userEmail.charAt(0).toUpperCase()
-  );
+  await expect(headerComponent.page).toHaveURL("/");
+  const avatarelement = await headerComponent.getAvatarElement();
+  await expect(avatarelement).toHaveText(userEmail.charAt(0).toUpperCase());
 });

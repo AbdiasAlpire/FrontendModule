@@ -1,18 +1,19 @@
-import { Page } from '@playwright/test';
-import { PeoplesLocators } from '../locators/PeoplesLocators';
+import { Page } from "@playwright/test";
+import { PeoplesLocators } from "../locators/PeoplesLocators";
 
 export class PeoplesPage {
   constructor(public page: Page) {}
 
   async goto() {
-    await this.page.goto('/people', { waitUntil: 'networkidle' });
+    await this.page.waitForTimeout(5000);
+    await this.page.goto("/people", { waitUntil: "networkidle" });
   }
 
   get addNewPersonButton() {
     return this.page.locator(PeoplesLocators.addNewPersonButton);
   }
 
-  async clickAddNewPersonButton(){
+  async clickAddNewPersonButton() {
     await this.addNewPersonButton.click();
   }
 
@@ -28,62 +29,78 @@ export class PeoplesPage {
     await this.page.locator(PeoplesLocators.summitButton).click();
   }
 
-  async clickCloseSidePannelButton(){
+  async clickCloseSidePannelButton() {
     await this.page.locator(PeoplesLocators.closeSidePanel).click();
   }
 
   async getCreationMessage(timeout = 5000) {
     const toast = this.page.locator(PeoplesLocators.successCreationContainer);
-    await toast.waitFor({ state: 'visible', timeout });
-    return this.page.locator(PeoplesLocators.successCreationDescription).innerText();
+    await toast.waitFor({ state: "visible", timeout });
+    return this.page
+      .locator(PeoplesLocators.successCreationDescription)
+      .innerText();
   }
 
-  async clickCloseSuccessMessage(){
+  async clickCloseSuccessMessage() {
     await this.page.locator(PeoplesLocators.closeSuccessMessage).click();
   }
 
   async waitForRemoveButton(timeout = 10000) {
-    await this.page.locator('button:has-text("remove")').waitFor({ state: 'visible', timeout });
+    await this.page
+      .locator('button:has-text("remove")')
+      .waitFor({ state: "visible", timeout });
   }
 
-  async clickRemovePersonButton(){
+  async clickRemovePersonButton() {
     await this.waitForRemoveButton();
     await this.page.locator(PeoplesLocators.removePersonButton).click();
   }
 
-  async clickRemoveConfirmationButton(){
+  async clickRemoveConfirmationButton() {
     await this.page.locator(PeoplesLocators.removeConfirmationButton).click();
   }
 
-  async getRemoveMessage(timeout = 5000){
-    const confirmation = this.page.locator(PeoplesLocators.removeConfirmationContainer);
-    await confirmation.waitFor({state: 'visible', timeout});
-    return this.page.locator(PeoplesLocators.removeConfirmationDescription).innerText();
+  async getRemoveMessage(timeout = 5000) {
+    const confirmation = this.page.locator(
+      PeoplesLocators.removeConfirmationContainer
+    );
+    await confirmation.waitFor({ state: "visible", timeout });
+    return this.page
+      .locator(PeoplesLocators.removeConfirmationDescription)
+      .innerText();
   }
 
   async waitForEditButton(timeout = 10000) {
-    await this.page.locator('button:has-text("edit")').waitFor({ state: 'visible', timeout });
+    await this.page
+      .locator('button:has-text("edit")')
+      .waitFor({ state: "visible", timeout });
   }
 
-  async clickEditButton(){
+  async clickEditButton() {
     await this.waitForEditButton();
     await this.page.locator(PeoplesLocators.editPersonButton).click();
   }
-  async getEditMessage(timeout = 5000){
-    const confirmation = this.page.locator(PeoplesLocators.editConfirmationContainer);
-    await confirmation.waitFor({state: 'visible', timeout});
-    return this.page.locator(PeoplesLocators.editConfirmationDescription).innerText();
+  async getEditMessage(timeout = 5000) {
+    const confirmation = this.page.locator(
+      PeoplesLocators.editConfirmationContainer
+    );
+    await confirmation.waitFor({ state: "visible", timeout });
+    return this.page
+      .locator(PeoplesLocators.editConfirmationDescription)
+      .innerText();
   }
 
-  async clickSearchPersonBox(){
+  async clickSearchPersonBox() {
     await this.page.locator(PeoplesLocators.searchTextBox).click();
   }
 
-  async typePersonFirstName(personName : string){
+  async typePersonFirstName(personName: string) {
     await this.page.locator(PeoplesLocators.searchTextBox).fill(personName);
   }
 
-  async getFirstRow(){
-    return await this.page.locator(PeoplesLocators.firstNameRowValue).innerText();
+  async getFirstRow() {
+    return await this.page
+      .locator(PeoplesLocators.firstNameRowValue)
+      .innerText();
   }
 }

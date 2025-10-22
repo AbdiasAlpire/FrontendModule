@@ -1,5 +1,4 @@
 import { mergeTests } from "@playwright/test";
-import { test as base } from "@playwright/test";
 import { test as loginTest, expect } from "../../fixtures/LoginPageFixture";
 import { test as companyTest } from "../../fixtures/CompanyPageFixture";
 import * as dotenv from "dotenv";
