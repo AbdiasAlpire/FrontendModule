@@ -31,10 +31,33 @@ export class PeoplesPage {
     await this.page.locator(PeoplesLocators.closeSidePanel).click();
   }
 
-async getToastErrorMessage(timeout = 5000) {
-  const toast = this.page.locator(PeoplesLocators.toastErrorContainer);
+  async getCreationMessage(timeout = 5000) {
+  const toast = this.page.locator(PeoplesLocators.successCreationContainer);
   await toast.waitFor({ state: 'visible', timeout });
-  return this.page.locator(PeoplesLocators.toastErrorDescription).innerText();
-}
+  return this.page.locator(PeoplesLocators.successCreationDescription).innerText();
+  }
+
+  async clickCloseSuccessMessage(){
+    await this.page.locator(PeoplesLocators.closeSuccessMessage).click();
+  }
+
+    async waitForRemoveButton(timeout = 10000) {
+    await this.page.locator('button:has-text("remove")').waitFor({ state: 'visible', timeout });
+  }
+
+  async clickRemovePersonButton(){
+    await this.waitForRemoveButton();
+    await this.page.locator(PeoplesLocators.removePersonButton).click();
+  }
+  
+  async clickRemoveConfirmationButton(){
+    await this.page.locator(PeoplesLocators.removeConfirmationButton).click();
+  }
+  
+  async getRemoveMessage(timeout = 5000){
+    const confirmation = this.page.locator(PeoplesLocators.removeConfirmationContainer);
+    await confirmation.waitFor({state: 'visible', timeout});
+    return this.page.locator(PeoplesLocators.removeConfirmationDescription).innerText();
+  }
 
 }
