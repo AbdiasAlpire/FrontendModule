@@ -11,6 +11,7 @@ export class PeoplesPage {
   get addNewPersonButton() {
     return this.page.locator(PeoplesLocators.addNewPersonButton);
   }
+  
   async clickAddNewPersonButton(){
     await this.addNewPersonButton.click();
   }
@@ -49,7 +50,7 @@ export class PeoplesPage {
     await this.waitForRemoveButton();
     await this.page.locator(PeoplesLocators.removePersonButton).click();
   }
-  
+
   async clickRemoveConfirmationButton(){
     await this.page.locator(PeoplesLocators.removeConfirmationButton).click();
   }
