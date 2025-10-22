@@ -8,7 +8,6 @@ test("TC015: Verify that a new person can be created and edited", async ({
   peoplesPage,
 }) => {
   await peoplesPage.goto();
-  await peoplesPage.addNewPersonButton;
   await peoplesPage.clickAddNewPersonButton();
   await peoplesPage.fillFirstName("searchTest");
   await peoplesPage.fillLastName("searchTest");
