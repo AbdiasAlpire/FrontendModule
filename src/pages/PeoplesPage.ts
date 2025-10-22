@@ -5,7 +5,6 @@ export class PeoplesPage {
   constructor(public page: Page) {}
 
   async goto() {
-    await this.page.waitForTimeout(5000);
     await this.page.goto("/people", { waitUntil: "networkidle" });
   }
 

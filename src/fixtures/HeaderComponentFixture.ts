@@ -1,5 +1,5 @@
 import { test as base } from "@playwright/test";
-import { HeaderComponent } from "../components/Header";
+import { HeaderComponent } from "../components/HeaderComponent";
 
 export const test = base.extend<{
   headerComponent: HeaderComponent;

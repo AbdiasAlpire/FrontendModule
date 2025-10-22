@@ -1,14 +1,13 @@
 import { mergeTests } from "@playwright/test";
-import { test as loginTest, expect } from "../../fixtures/LoginPageFixture";
+import { test as loggedInTest } from "../../fixtures/LoggedInFixture";
 import { test as peoplesTest } from "../../fixtures/PeoplesPageFixture";
 import * as dotenv from "dotenv";
 
-const test = mergeTests(loginTest, peoplesTest);
+const test = mergeTests(loggedInTest, peoplesTest);
 
 dotenv.config();
 
 test("TC005: Verify the creation of a person and successfully add that person as a customer", async ({
-  loginPage,
   peoplesPage,
 }) => {
   await peoplesPage.goto();

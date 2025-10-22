@@ -1,9 +1,9 @@
 import { mergeTests } from "@playwright/test";
-import { test as loginTest, expect } from "../../fixtures/LoginPageFixture";
-import { test as companyTest } from "../../fixtures/CompanyPageFixture";
+import { test as companyTest, expect } from "../../fixtures/CompanyPageFixture";
+import { test as loggedInTest } from "../../fixtures/LoggedInFixture";
 import * as dotenv from "dotenv";
 
-const test = mergeTests(loginTest, companyTest);
+const test = mergeTests(loggedInTest, companyTest);
 
 dotenv.config();
 
