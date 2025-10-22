@@ -2,7 +2,7 @@ import { Page } from "@playwright/test";
 import { CompanyLocators } from "../locators/CompanyLocators";
 
 export class CompanyPage {
-  constructor(private page: Page) {}
+  constructor(public page: Page) {}
 
   async goTo() {
     await this.page.waitForTimeout(5000);

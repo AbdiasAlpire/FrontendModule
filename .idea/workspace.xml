@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d95f464-add3-4aae-bcbf-2e39130a3cf2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/locators/HeaderLocators.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/People/TC005.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/People/TC005.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fixtures/LoggedInFixture.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/fixtures/LoggedInFixture.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fixtures/LoginPageFixture.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/fixtures/LoginPageFixture.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CompanyPage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CompanyPage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/People/TC015.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/People/TC015.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/People/TC016.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/People/TC016.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/People/TC017.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/People/TC017.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/company/TC004.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/company/TC004.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/login/TC001.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/login/TC001.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/login/TC002.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/login/TC002.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,12 +66,16 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feature/TC002-login-successful",
+    "git-widget-placeholder": "#7 on REFACTOR-many-tests",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/frontendpw202509",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\Aqua 2024.3.1\\plugins\\javascript-base\\jsLanguageServicesImpl\\external"
   }
 }]]></component>
