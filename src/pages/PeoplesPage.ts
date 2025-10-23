@@ -123,4 +123,13 @@ export class PeoplesPage {
       .locator(PeoplesLocators.lastNameMandatoryMessage)
       .isVisible();
   }
+
+  async clickThreeDotsMenuButton() {
+    await this.page.waitForTimeout(5000);
+    await this.page.locator(PeoplesLocators.personThreeDotMenu).first().click();
+  }
+  async clickDeleteDropDownButton() {
+    await this.page.waitForTimeout(5000);
+    await this.page.locator(PeoplesLocators.deletePersonDotMenu).click();
+  }
 }

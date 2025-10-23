@@ -14,7 +14,6 @@ export const PeoplesLocators = {
     ".ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable",
   successCreationDescription: ".ant-notification-notice-description",
   editPersonButton: "body div button:nth-child(2)",
-  //summitEditButton: 'button[type="submit"]',
   editConfirmationContainer:
     ".ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable",
   editConfirmationDescription: ".ant-notification-notice-description",
@@ -24,4 +23,7 @@ export const PeoplesLocators = {
     'div[id="firstname_help"] div[class="ant-form-item-explain-error"]',
   lastNameMandatoryMessage:
     'div[id="lastname_help"] div[class="ant-form-item-explain-error"]',
+  personThreeDotMenu:
+    '.anticon.anticon-ellipsis.ant-dropdown-trigger[aria-label="ellipsis"]',
+  deletePersonDotMenu: ".anticon.anticon-delete.ant-dropdown-menu-item-icon",
 };
