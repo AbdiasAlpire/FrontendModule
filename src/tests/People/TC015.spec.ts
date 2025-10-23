@@ -1,13 +1,17 @@
 import { mergeTests } from "@playwright/test";
 import { test as loggedInTest, expect } from "../../fixtures/LoggedInFixture";
 import { test as peoplesTest } from "../../fixtures/PeoplesPageFixture";
+import { test as headerTest } from "../../fixtures/HeaderComponentFixture";
+import * as dotenv from "dotenv";
 
-const test = mergeTests(loggedInTest, peoplesTest);
+const test = mergeTests(loggedInTest, peoplesTest, headerTest);
+dotenv.config();
 
-test("TC015: Verify that a new person can be created and edited", async ({
+test("TC015: Verify that a new person can be created and then found in the People List by searching their name.", async ({
   peoplesPage,
+  headerComponent,
 }) => {
-  await peoplesPage.goto();
+  await headerComponent.clickPeoples();
   await peoplesPage.clickAddNewPersonButton();
   await peoplesPage.fillFirstName("searchTest");
   await peoplesPage.fillLastName("searchTest");

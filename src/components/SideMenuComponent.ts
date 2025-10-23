@@ -7,4 +7,9 @@ export class SideMenuComponent {
   async clickExpenseOption() {
     await this.page.getByRole("menuitem", { name: "Expenses" });
   }
+
+  async clickPeoplesOption() {
+    await this.page.waitForTimeout(3000);
+    await this.page.getByRole("menuitem", { name: "Peoples" });
+  }
 }

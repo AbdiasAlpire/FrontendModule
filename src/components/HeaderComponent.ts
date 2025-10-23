@@ -7,4 +7,8 @@ export class HeaderComponent {
   async getAvatarElement() {
     return this.page.locator(HeaderLocators.avatarButton);
   }
+
+  async clickPeoples() {
+    this.page.locator(HeaderLocators.peoplesButton).click();
+  }
 }

@@ -1,20 +1,27 @@
-export const PeoplesLocators={
-   addNewPersonButton : 'div[id="root"] div:nth-child(3) button:nth-child(1)',
-   firstNameField : '//input[@id="firstname"]',
-   lastNameField: '//input[@id="lastname"]',
-   summitButton: '//button[@type="submit"]',
-   closeSidePanel: '(//*[name()="svg"][@fill-rule="evenodd"])[2]',
-   closeSuccessMessage: '//a[@aria-label="Close"]',
-   removePersonButton: 'div[class="TopCollapseBox"] button:nth-child(1)',
-   removeConfirmationButton: '"OK"',
-   removeConfirmationContainer: '.ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable',
-   removeConfirmationDescription: '.ant-notification-notice-description',
-   successCreationContainer: '.ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable',
-   successCreationDescription: '.ant-notification-notice-description',
-   editPersonButton : 'body div button:nth-child(2)',
-   //summitEditButton: 'button[type="submit"]',
-   editConfirmationContainer: '.ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable',
-   editConfirmationDescription: '.ant-notification-notice-description',
-   searchTextBox: 'input[placeholder="search"]',
-   firstNameRowValue : 'tbody tr:nth-child(2) td:nth-child(1)'
+export const PeoplesLocators = {
+  addNewPersonButton: '//div[@id="root"]//div[3]//button[1]',
+  firstNameField: '//input[@id="firstname"]',
+  lastNameField: '//input[@id="lastname"]',
+  summitButton: '//button[@type="submit"]',
+  closeSidePanel: '(//*[name()="svg"][@fill-rule="evenodd"])[2]',
+  closeSuccessMessage: '//a[@aria-label="Close"]',
+  removePersonButton: 'div[class="TopCollapseBox"] button:nth-child(1)',
+  removeConfirmationButton: '"OK"',
+  removeConfirmationContainer:
+    ".ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable",
+  removeConfirmationDescription: ".ant-notification-notice-description",
+  successCreationContainer:
+    ".ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable",
+  successCreationDescription: ".ant-notification-notice-description",
+  editPersonButton: "body div button:nth-child(2)",
+  //summitEditButton: 'button[type="submit"]',
+  editConfirmationContainer:
+    ".ant-notification-notice.ant-notification-notice-success.ant-notification-notice-closable",
+  editConfirmationDescription: ".ant-notification-notice-description",
+  searchTextBox: 'input[placeholder="search"]',
+  firstNameRowValue: "tbody tr:nth-child(2) td:nth-child(1)",
+  firstNameMandatoryMessage:
+    'div[id="firstname_help"] div[class="ant-form-item-explain-error"]',
+  lastNameMandatoryMessage:
+    'div[id="lastname_help"] div[class="ant-form-item-explain-error"]',
 };
