@@ -8,5 +8,8 @@ export const ExpensesCategoryLocators = {
   closeContainerButton: `.ant-drawer-close`,
   successToaster: `.ant-notification-notice-wrapper`,
   closeToasterButton: `.ant-notification-notice-close`,
-  spinner: `.ant-spin-spinning`
+  popupSpinner: `.ant-spin-spinning`,
+  refreshButton: `(//div[@class='ant-space-item'])[2]`,
+  expensesCategoryTable: `.ant-table-row`,
+  refreshSpinner: `.ant-spin-dot.ant-spin-dot-spin`
 };

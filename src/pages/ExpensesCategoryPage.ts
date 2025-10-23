@@ -34,10 +34,27 @@ export class ExpensesCategoryPage {
 
   async clickCloseContainer(timeout = 5000) {
     const closeContainerButton = this.page.locator(ExpensesCategoryLocators.closeContainerButton);
-    await this.page.locator(ExpensesCategoryLocators.spinner).waitFor({ state: 'detached', timeout }).catch(() => null);
+    await this.page.locator(ExpensesCategoryLocators.popupSpinner).waitFor({ state: 'detached', timeout }).catch(() => null);
     await closeContainerButton.waitFor({ state: "visible", timeout });
     await this.page.locator(ExpensesCategoryLocators.successToaster).waitFor({ state: 'visible', timeout });
     await this.page.locator(ExpensesCategoryLocators.closeToasterButton).click();
     await closeContainerButton.click();
+  }
+
+  async clickRefreshButton(){
+    await this.page.locator(ExpensesCategoryLocators.refreshButton).click();
+  }
+
+  async getContentTable(timeout = 5000, name:string, description:string, color:string): Promise<any> {
+    await this.page.locator(ExpensesCategoryLocators.refreshSpinner).waitFor({ state: 'detached', timeout }).catch(() => null);
+    const tableRows = this.page.locator(ExpensesCategoryLocators.expensesCategoryTable);
+    const targetRow = tableRows.filter({
+      hasText: name,
+    }).filter({
+      hasText: description,
+    }).filter({
+      hasText: color,
+    });
+    return targetRow
   }
 }
