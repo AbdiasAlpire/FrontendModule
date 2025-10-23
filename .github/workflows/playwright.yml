@@ -1,12 +1,12 @@
 name: Playwright CI
 
 on:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      test_file:
+        description: 'Path to a specific test file (optional)'
+        required: false
+        default: ''
 
 jobs:
   test:
@@ -28,7 +28,14 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --reporter=html
+        run: |
+          if [ -n "${{ github.event.inputs.test_file }}" ]; then
+            echo "Running specific test file: ${{ github.event.inputs.test_file }}"
+            npx playwright test ${{ github.event.inputs.test_file }} --reporter=html
+          else
+            echo "Running full test suite"
+            npx playwright test --reporter=html
+          fi
 
       - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4
