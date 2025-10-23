@@ -22,7 +22,6 @@ test("TC017: Verify that a new person can be created and edited", async ({
   await peoplesPage.fillFirstName("edited");
   await peoplesPage.fillLastName("edited");
   await peoplesPage.clickSumitButton();
-  await peoplesPage.page.waitForTimeout(2000);
   const editedMessage = await peoplesPage.getEditMessage();
   expect(editedMessage).toContain("we update this document");
 });

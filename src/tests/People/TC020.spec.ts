@@ -10,14 +10,15 @@ dotenv.config();
 test("TC020: Verify the first person at person list after searching can be deleted.", async ({
   peoplesPage,
   headerComponent,
+  loginPage,
 }) => {
   await headerComponent.clickPeoples();
   await peoplesPage.clickSearchPersonBox();
   await peoplesPage.typePersonFirstName("searchTest");
   await peoplesPage.clickThreeDotsMenuButton();
+  await peoplesPage.getFirstRow();
   await peoplesPage.clickDeleteDropDownButton();
   await peoplesPage.clickRemoveConfirmationButton();
-  await peoplesPage.page.waitForTimeout(2000);
   const removeMessage = await peoplesPage.getRemoveMessage();
   expect(removeMessage).toContain("Successfully Deleted the people by id");
 });
