@@ -36,6 +36,7 @@ jobs:
             echo "Running full test suite"
             npx playwright test --reporter=html
           fi
+
       - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4
         with:
