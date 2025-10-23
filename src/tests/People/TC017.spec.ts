@@ -1,15 +1,18 @@
 import { mergeTests } from "@playwright/test";
 import { test as loggedInTest, expect } from "../../fixtures/LoggedInFixture";
 import { test as peoplesTest } from "../../fixtures/PeoplesPageFixture";
+import { test as headerTest } from "../../fixtures/HeaderComponentFixture";
 import * as dotenv from "dotenv";
 
-const test = mergeTests(loggedInTest, peoplesTest);
+const test = mergeTests(loggedInTest, peoplesTest, headerTest);
+dotenv.config();
 
 test("TC017: Verify that a new person can be created and edited", async ({
   peoplesPage,
+  headerComponent,
+  loginPage,
 }) => {
-  await peoplesPage.goto();
-  await peoplesPage.addNewPersonButton;
+  await headerComponent.clickPeoples();
   await peoplesPage.clickAddNewPersonButton();
   await peoplesPage.fillFirstName("testPlaywright");
   await peoplesPage.fillLastName("testPlaywright");
