@@ -1,11 +1,11 @@
-name: Playwright CI
+name: Manual Playwright workflow
 
 on:
   workflow_dispatch:
     inputs:
       test_file:
         description: 'Path to a specific test file (optional)'
-        required: false
+        required: true
         default: ''
 
 jobs:
@@ -36,7 +36,6 @@ jobs:
             echo "Running full test suite"
             npx playwright test --reporter=html
           fi
-
       - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4
         with:
