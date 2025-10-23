@@ -17,4 +17,6 @@ test("TC021: Verify a new customer can be created by type people", async ({
   await customerPage.selectPeopleAsType();
   await customerPage.clickSearchBox();
   await customerPage.fillSearchBox("Search");
+  await customerPage.clickFirstRow();
+  await customerPage.clickSummitButton();
 });

@@ -46,9 +46,17 @@ export class CustomerPage {
     await this.page.locator(CustomerLocators.searchPeople).fill(person);
   }
 
-  async clickFirstRow(timeout: 1000) {
+  async waitSelectListRow(timeout: 2000) {
     const waitlist = await this.page.locator(CustomerLocators.selectFirstRow);
     waitlist.waitFor({ state: "visible", timeout });
-    await waitlist.click();
+  }
+
+  async clickFirstRow() {
+    await this.waitSelectListRow();
+    await this.page.locator(CustomerLocators.selectFirstRow).click();
+  }
+
+  async clickSummitButton() {
+    await this.page.locator(CustomerLocators.summitCustumer).click();
   }
 }
