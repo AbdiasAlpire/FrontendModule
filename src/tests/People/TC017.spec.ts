@@ -5,7 +5,6 @@ import * as dotenv from "dotenv";
 
 const test = mergeTests(loggedInTest, peoplesTest);
 
-// example
 test("TC017: Verify that a new person can be created and edited", async ({
   peoplesPage,
 }) => {
