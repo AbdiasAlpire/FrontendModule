@@ -10,14 +10,22 @@ export class LeadPage {
   }
 
   async clickAddNewLeadButton() {
-    await this.page.locator(LeadLocators.addLeadButton).click();
+    const addLeadButton = this.page.locator(LeadLocators.addLeadButton);
+    await addLeadButton.waitFor({state: "visible", timeout: 5000});
+    await addLeadButton.click();
   }
 
   async clickSubmitButton() {
-    await this.page.locator(LeadLocators.submitButton).click();
+    const submitButton = this.page.locator(LeadLocators.submitButton);
+    await submitButton.waitFor({state: "visible", timeout: 5000});
+    await submitButton.click();
   }
 
   async getErrorMessagesCount() {
-    return this.page.locator(LeadLocators.allErrorMessages).count();
+    const errorMessages = this.page.locator(LeadLocators.allErrorMessages);
+    await this.page.waitForTimeout(500);
+    await errorMessages.first().waitFor({state: "visible", timeout: 5000}).catch(() => {
+      return errorMessages.count();
+    })
   }
 }
