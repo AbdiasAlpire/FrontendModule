@@ -11,5 +11,7 @@ export const ExpensesCategoryLocators = {
   popupSpinner: `.ant-spin-spinning`,
   refreshButton: `(//div[@class='ant-space-item'])[2]`,
   expensesCategoryTable: `.ant-table-row`,
-  refreshSpinner: `.ant-spin-dot.ant-spin-dot-spin`
+  refreshSpinner: `.ant-spin-dot.ant-spin-dot-spin`,
+  titleToaster: `.ant-notification-notice-message`,
+  descriptionToaster: `.ant-notification-notice-description`
 };
