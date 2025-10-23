@@ -7,20 +7,14 @@ const test = mergeTests(loggedInTest, productTest);
 
 dotenv.config();
 
-test("TC027: Verify 'Add New Product' Modal Opens", async ({ productPage }) => {
-  // Step 1-3: User is already logged in via LoggedInFixture
-  // Step 4: Verify user is on Dashboard (handled by LoggedInFixture)
-  
-  // Step 5: Navigate to Products page via side menu
+test("TC028: Verify 'Add New Product' Modal Opens", async ({ productPage }) => {
+
   await productPage.navigateToProductsViaSideMenu();
   
-  // Verify we're on the products page by checking the URL
   await expect(productPage.page).toHaveURL(/.*\/product/);
   
-  // Step 6: Click the "Add New Product" button
   await productPage.clickAddNewProductButton();
   
-  // Step 7: Verify the "Add New Product" side modal opens from the right
   const isModalVisible = await productPage.isAddProductModalVisible();
   expect(isModalVisible).toBe(true);
   
