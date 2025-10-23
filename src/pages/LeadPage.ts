@@ -22,10 +22,9 @@ export class LeadPage {
   }
 
   async getErrorMessagesCount() {
-    const errorMessages = this.page.locator(LeadLocators.allErrorMessages);
-    await this.page.waitForTimeout(500);
-    await errorMessages.first().waitFor({state: "visible", timeout: 5000}).catch(() => {
-      return errorMessages.count();
-    })
+    const errors = this.page.locator(LeadLocators.allErrorMessages);
+    await errors.first().waitFor({ state: "visible", timeout: 5000 }).catch(() => {});
+    const count = await errors.count();
+    return count;
   }
 }
