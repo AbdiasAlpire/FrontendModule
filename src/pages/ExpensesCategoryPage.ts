@@ -32,12 +32,24 @@ export class ExpensesCategoryPage {
     await this.page.locator(ExpensesCategoryLocators.submitButton).click();
   }
 
+  async waitForPupUpSpinner(timeout:number){
+    await this.page.locator(ExpensesCategoryLocators.popupSpinner).waitFor({ state: 'detached', timeout }).catch(() => null);
+  }
+
+  async waitForSuccessToaster(timeout:number){
+    await this.page.locator(ExpensesCategoryLocators.successToaster).waitFor({ state: 'visible', timeout });
+  }
+
+  async clickCloseSuccessToaster(){
+    await this.page.locator(ExpensesCategoryLocators.closeToasterButton).click();
+  }
+
   async clickCloseContainer(timeout = 5000) {
     const closeContainerButton = this.page.locator(ExpensesCategoryLocators.closeContainerButton);
-    await this.page.locator(ExpensesCategoryLocators.popupSpinner).waitFor({ state: 'detached', timeout }).catch(() => null);
+    await this.waitForPupUpSpinner(timeout);
     await closeContainerButton.waitFor({ state: "visible", timeout });
-    await this.page.locator(ExpensesCategoryLocators.successToaster).waitFor({ state: 'visible', timeout });
-    await this.page.locator(ExpensesCategoryLocators.closeToasterButton).click();
+    await this.waitForSuccessToaster(timeout);
+    await this.clickCloseSuccessToaster();
     await closeContainerButton.click();
   }
 
@@ -45,7 +57,7 @@ export class ExpensesCategoryPage {
     await this.page.locator(ExpensesCategoryLocators.refreshButton).click();
   }
 
-  async getContentTable(timeout = 5000, name:string, description:string, color:string): Promise<any> {
+  async getContentTable(timeout:number, name:string, description:string, color:string): Promise<any> {
     await this.page.locator(ExpensesCategoryLocators.refreshSpinner).waitFor({ state: 'detached', timeout }).catch(() => null);
     const tableRows = this.page.locator(ExpensesCategoryLocators.expensesCategoryTable);
     const targetRow = tableRows.filter({
@@ -56,5 +68,13 @@ export class ExpensesCategoryPage {
       hasText: color,
     });
     return targetRow
+  }
+
+  async getToasterTitle(): Promise<string>{
+    return await this.page.locator(ExpensesCategoryLocators.titleToaster).innerText();
+  }
+
+  async getToasterDescription(): Promise<string>{
+    return await this.page.locator(ExpensesCategoryLocators.descriptionToaster).innerText();
   }
 }
