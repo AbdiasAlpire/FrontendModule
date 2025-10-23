@@ -1,8 +1,8 @@
 import { Page } from "@playwright/test";
-import { LoginLocators } from "../locators/LoginLocators";
 import {LeadLocators} from "../locators/LeadLocators";
+import { LogInLocators } from "../locators/LoginLocators";
 
-export class LoginPage {
+export class LogInPage {
   constructor(public page: Page) {}
 
   async goTo() {
@@ -10,20 +10,28 @@ export class LoginPage {
   }
 
   async fillUsernameInput(username: string) {
-    await this.page.locator(LoginLocators.emailInput).fill(username);
+    await this.page.locator(LogInLocators.emailInput).fill(username);
   }
 
   async fillPasswordInput(password: string) {
-    await this.page.locator(LoginLocators.passwordInput).fill(password);
+    await this.page.locator(LogInLocators.passwordInput).fill(password);
   }
 
   async clickLoginButton() {
-    await this.page.locator(LoginLocators.loginButton).click();
+    await this.page.locator(LogInLocators.loginButton).click();
   }
 
-  async getToastErrorMessage() {
-    const toast = this.page.locator(LoginLocators.toastErrorDescription);
-    await toast.waitFor({ state: 'visible', timeout: 5000 });
-    return toast.innerText();
+  async getToastErrorMessage(timeout = 5000): Promise<string> {
+    const toast = this.page.locator(LogInLocators.toastErrorContainer);
+    await toast.waitFor({ state: "visible", timeout });
+    return await this.page
+      .locator(LogInLocators.toastErrorDescription)
+      .innerText();
+  }
+
+  async getLogInTitle(timeout = 5000): Promise<string> {
+    const signInTitle = this.page.locator(LogInLocators.signInTitle);
+    await signInTitle.waitFor({ state: "visible", timeout });
+    return await signInTitle.innerText();
   }
 }
