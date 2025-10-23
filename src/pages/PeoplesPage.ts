@@ -12,11 +12,11 @@ export class PeoplesPage {
     return this.page.locator(PeoplesLocators.addNewPersonButton);
   }
 
-async clickAddNewPersonButton() {
-   const button = this.addNewPersonButton;
-   await button.waitFor({ state: "visible" });
-   await button.click();
- }
+  async clickAddNewPersonButton() {
+    const button = this.addNewPersonButton;
+    await button.waitFor({ state: "visible" });
+    await button.click();
+  }
 
   async fillFirstName(firstname: string) {
     await this.page.locator(PeoplesLocators.firstNameField).fill(firstname);
@@ -103,5 +103,25 @@ async clickAddNewPersonButton() {
     return await this.page
       .locator(PeoplesLocators.firstNameRowValue)
       .innerText();
+  }
+
+  async FirstNameMandatoryMessages(timeout = 3000) {
+    const mandatory = this.page.locator(
+      PeoplesLocators.firstNameMandatoryMessage
+    );
+    await mandatory.waitFor({ state: "visible", timeout });
+    return this.page
+      .locator(PeoplesLocators.firstNameMandatoryMessage)
+      .isVisible();
+  }
+
+  async LastNameMandatoryMessages(timeout = 3000) {
+    const mandatory = this.page.locator(
+      PeoplesLocators.lastNameMandatoryMessage
+    );
+    await mandatory.waitFor({ state: "visible", timeout });
+    return this.page
+      .locator(PeoplesLocators.lastNameMandatoryMessage)
+      .isVisible();
   }
 }
