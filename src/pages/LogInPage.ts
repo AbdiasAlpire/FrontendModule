@@ -1,4 +1,5 @@
 import { Page } from "@playwright/test";
+import {LeadLocators} from "../locators/LeadLocators";
 import { LogInLocators } from "../locators/LoginLocators";
 
 export class LogInPage {
