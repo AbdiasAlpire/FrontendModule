@@ -27,4 +27,13 @@ export class LeadPage {
     const count = await errors.count();
     return count;
   }
+
+  async fillSearchBar(name: string){
+    await this.page.locator(LeadLocators.searchBar).fill(name);
+  }
+
+  async getNoDataMessage() {
+      return this.page.locator(LeadLocators.noDataMessage);
+  }
+
 }
