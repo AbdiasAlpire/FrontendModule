@@ -14,5 +14,8 @@ export const ExpensesCategoryLocators = {
   refreshSpinner: `.ant-spin-dot.ant-spin-dot-spin`,
   titleToaster: `.ant-notification-notice-message`,
   descriptionToaster: `.ant-notification-notice-description`,
-  searchInput: `Search`
+  searchInput: `Search`,
+  threePointsButton: `ellipsis`,
+  infoPopUp: `//div[@role='dialog']`,
+  textValuePopUp: `//div[@class="ant-col ant-col-14 gutter-row css-1lk2pln"]/p`
 };
