@@ -21,5 +21,7 @@ export const ExpensesCategoryLocators = {
   removeButton: `Remove`,
   editButton: `Edit`,
   deleteConfirmationPopup: `/html/body/div[5]/div/div[2]/div/div[1]`,
-  acceptRemoveButton: `/html/body/div[5]/div/div[2]/div/div[1]/div/div[3]/button[2]`
+  acceptRemoveButton: `/html/body/div[5]/div/div[2]/div/div[1]/div/div[3]/button[2]`,
+  showOption: 'Show',
+  removeOption: 'Delete'
 };

@@ -95,7 +95,7 @@ export class ExpensesCategoryPage {
   }
 
   async clickShowOption(timeout=5000){
-    const showButton = this.page.getByRole('menuitem', { name: 'Show' });
+    const showButton = this.page.getByRole('menuitem', { name: ExpensesCategoryLocators.showOption });
     await showButton.waitFor({ state: "visible", timeout })
     await showButton.click();
   }
@@ -150,5 +150,11 @@ export class ExpensesCategoryPage {
     const closeContainerButton = this.page.locator(ExpensesCategoryLocators.closeContainerButton);
     await closeContainerButton.waitFor({ state: "visible", timeout });
     await closeContainerButton.click();
+  }
+
+    async clickRemoveOption(timeout=5000){
+    const removeButton = this.page.getByRole('menuitem', { name: ExpensesCategoryLocators.removeOption });
+    await removeButton.waitFor({ state: "visible", timeout })
+    await removeButton.click();
   }
 }
