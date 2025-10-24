@@ -27,6 +27,17 @@ export class CompanyPage {
 
   async fillSearchBar(name: string){
     await this.page.locator(CompanyLocators.searchBar).fill(name);
+    
+  async fillName(name: string) {
+    await this.page.locator(CompanyLocators.nameField).fill(name);
+  }
+
+  async fillEmail(email: string) {
+    await this.page.locator(CompanyLocators.emailField).fill(email);
+  }
+
+  async getSuccessPopUpMessage() {
+    return this.page.locator(CompanyLocators.successPopUpMessage);
   }
 
   async getTableCell() {

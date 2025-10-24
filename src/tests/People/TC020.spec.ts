@@ -7,19 +7,17 @@ import * as dotenv from "dotenv";
 const test = mergeTests(loggedInTest, peoplesTest, headerTest);
 dotenv.config();
 
-test("TC016: Verify that a new person can be created and deleted", async ({
+test("TC020: Verify the first person at person list after searching can be deleted.", async ({
   peoplesPage,
   headerComponent,
   loginPage,
 }) => {
-  await peoplesPage.page.waitForLoadState("networkidle");
   await headerComponent.clickPeoples();
-  await peoplesPage.clickAddNewPersonButton();
-  await peoplesPage.fillFirstName("testPlaywright");
-  await peoplesPage.fillLastName("testPlaywright");
-  await peoplesPage.clickSumitButton();
-  await peoplesPage.clickCloseSuccessMessage();
-  await peoplesPage.clickRemovePersonButton();
+  await peoplesPage.clickSearchPersonBox();
+  await peoplesPage.typePersonFirstName("searchTest");
+  await peoplesPage.clickThreeDotsMenuButton();
+  await peoplesPage.getFirstRow();
+  await peoplesPage.clickDeleteDropDownButton();
   await peoplesPage.clickRemoveConfirmationButton();
   const removeMessage = await peoplesPage.getRemoveMessage();
   expect(removeMessage).toContain("Successfully Deleted the people by id");
