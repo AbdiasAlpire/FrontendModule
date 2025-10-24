@@ -9,8 +9,8 @@ const test = mergeTests(loggedInTest, SideMenuTest, expensesCategoryTest);
 dotenv.config();
 
 test("TC024: Verify that an Expense Category can be deleted successfully", async ({sideMenuComponent, expensesCategoryPage}) => {
-  const name:string = 'Category 3';
-  const description:string = 'Description Category 3';
+  const name:string = 'Category 5';
+  const description:string = 'Description Category 5';
   const color:string = 'orangered';
   await sideMenuComponent.clickExpensesCategoryOption();
   await expensesCategoryPage.clickAddExpensesCategoryButton();
