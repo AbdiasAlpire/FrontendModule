@@ -24,4 +24,12 @@ export class CompanyPage {
   async getEmailErrorMesage() {
     return this.page.locator(CompanyLocators.emailEmptyMessage);
   }
+
+  async fillSearchBar(name: string){
+    await this.page.locator(CompanyLocators.searchBar).fill(name);
+  }
+
+  async getNoDataMessage() {
+      return this.page.locator(CompanyLocators.noDataMessage);
+  }
 }
