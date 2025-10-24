@@ -13,4 +13,5 @@ export const CustomerLocators = {
   erroMessageContainer:
     ".ant-notification-notice.ant-notification-notice-error.ant-notification-notice-closable",
   errorMessageDescription: ".ant-notification-notice-description",
+  typeMandatoryMessage: ".ant-form-item-explain-error",
 };

@@ -66,4 +66,20 @@ export class CustomerPage {
       .locator(CustomerLocators.successCreationDescription)
       .innerText();
   }
+
+  async getErrorMessage(timeout = 5000) {
+    const toast = this.page.locator(CustomerLocators.erroMessageContainer);
+    await toast.waitFor({ state: "visible", timeout });
+    return this.page
+      .locator(CustomerLocators.errorMessageDescription)
+      .innerText();
+  }
+
+  async getMandatory() {
+    const mandatory = await this.page.locator(
+      CustomerLocators.typeMandatoryMessage
+    );
+    await mandatory.waitFor({ state: "visible", timeout: 2000 });
+    return mandatory.innerText();
+  }
 }
