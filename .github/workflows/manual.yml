@@ -5,7 +5,7 @@ on:
     inputs:
       test_file:
         description: 'Path to a specific test file (optional)'
-        required: false
+        required: true
         default: ''
 
 jobs:
