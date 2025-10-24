@@ -82,4 +82,63 @@ export class CustomerPage {
     await mandatory.waitFor({ state: "visible", timeout: 2000 });
     return mandatory.innerText();
   }
+
+  async waitForSearchbox(timeout = 3000) {
+    const clickSearch = this.page.locator(CustomerLocators.searchTextBox);
+    await clickSearch.waitFor({ state: "visible", timeout });
+  }
+
+  async clickSearchCustomernBox(timeout = 3000) {
+    await this.waitForSearchbox();
+    await this.page.locator(CustomerLocators.searchTextBox).click();
+  }
+
+  async typeCustomer() {
+    await this.page.locator(CustomerLocators.typeCustomerBox).click();
+  }
+  async typeCustomerFirstName(personName: string) {
+    await this.page.locator(CustomerLocators.searchTextBox).fill(personName);
+  }
+
+  async clickThreeDotsMenuButton() {
+    await this.page.waitForTimeout(5000);
+    await this.page
+      .locator(CustomerLocators.customerThreeDotMenu)
+      .first()
+      .click();
+  }
+
+  async clickDeleteDropDownButton() {
+    await this.page.waitForTimeout(2000);
+    await this.page.locator(CustomerLocators.deleteCustomerDotMenu).click();
+  }
+
+  async getFirstRow() {
+    return await this.page
+      .locator(CustomerLocators.firstNameRowValue)
+      .innerText();
+  }
+
+  async clickRemoveConfirmationButton() {
+    await this.page.waitForTimeout(2000);
+    await this.page.locator(CustomerLocators.removeConfirmationButton).click();
+  }
+
+  async getRemoveMessage(timeout = 5000) {
+    const confirmation = this.page.locator(
+      CustomerLocators.removeConfirmationContainer
+    );
+    await confirmation.waitFor({ state: "visible", timeout });
+    return this.page
+      .locator(CustomerLocators.removeConfirmationDescription)
+      .innerText();
+  }
+
+  async getBadRequestMessage(timeout = 5000) {
+    const badrequest = this.page.locator(CustomerLocators.badRequestContainer);
+    await badrequest.waitFor({ state: "visible", timeout });
+    return this.page
+      .locator(CustomerLocators.badRequestDescription)
+      .innerText();
+  }
 }
