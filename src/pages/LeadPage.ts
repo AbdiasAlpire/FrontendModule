@@ -27,4 +27,14 @@ export class LeadPage {
     const count = await errors.count();
     return count;
   }
+
+  async clickRefreshButton() {
+    const submitButton = this.page.locator(LeadLocators.refreshButton);
+    await submitButton.waitFor({state: "visible", timeout: 5000});
+    await submitButton.click();
+  }
+
+  async getTableCell() {
+    return this.page.locator(LeadLocators.tableCell).first();
+  }
 }
