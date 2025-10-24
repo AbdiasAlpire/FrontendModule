@@ -15,10 +15,10 @@ test("TC030: Verify first customer on customer list can be deleted", async ({
   await customerPage.clickThreeDotsMenuButton();
   await customerPage.clickDeleteDropDownButton();
   await customerPage.clickRemoveConfirmationButton();
-  const badRequest = await customerPage.getBadRequestMessage();
-  expect(badRequest).toContain(
-    "Cannot delete client if client have any quote or invoice"
-  );
-  //   const removeMessage = await customerPage.getRemoveMessage();
-  //   expect(removeMessage).toContain("Customer deleted");
+  //   const badRequest = await customerPage.getBadRequestMessage();
+  //   expect(badRequest).toContain(
+  //     "Cannot delete client if client have any quote or invoice"
+  //   );
+  const removeMessage = await customerPage.getRemoveMessage();
+  expect(removeMessage).toContain("Customer deleted");
 });
