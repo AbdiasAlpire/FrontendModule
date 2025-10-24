@@ -8,11 +8,10 @@ const test = mergeTests(loggedInTest, SideMenuTest, expensesCategoryTest);
 
 dotenv.config();
 
-test("TC022: Verify that a user can search for an Expense Category created successfully", async ({sideMenuComponent, expensesCategoryPage}) => {
+test("TC023: Verify that the Expense Category information is retrieved successfully via popup ", async ({sideMenuComponent, expensesCategoryPage}) => {
   const name:string = 'Category 3';
   const description:string = 'Description Category 3';
   const color:string = 'red';
-  const searchText:string = '3';
   await sideMenuComponent.clickExpensesCategoryOption();
   await expensesCategoryPage.clickAddExpensesCategoryButton();
   await expensesCategoryPage.waitForExpensesCategoryContainer();
@@ -22,7 +21,13 @@ test("TC022: Verify that a user can search for an Expense Category created succe
   await expensesCategoryPage.clickSubmitButton(); 
   await expensesCategoryPage.clickCloseContainer();
   await expensesCategoryPage.clickRefreshButton();
-  await expensesCategoryPage.fillSearchField(searchText);
-  const contentTable = await expensesCategoryPage.getContentTable(name, description, color);
-  await expect(contentTable).not.toHaveCount(0);
+  await expensesCategoryPage.clickThreePointsButton();
+  await expensesCategoryPage.clickShowOption();
+  await expensesCategoryPage.waitForPopUpDisplayed();
+  const namePopUp = await expensesCategoryPage.getNamePopUp();
+  const descriptionPopUp = await expensesCategoryPage.getDescriptionPopUp();
+  const colorPopUp = await expensesCategoryPage.getColorPopUp();
+  await expect(namePopUp).toHaveText(name);
+  await expect(descriptionPopUp).toHaveText(description);
+  await expect(colorPopUp).toHaveText(color);
 });
