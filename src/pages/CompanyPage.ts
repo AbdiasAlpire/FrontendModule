@@ -25,6 +25,9 @@ export class CompanyPage {
     return this.page.locator(CompanyLocators.emailEmptyMessage);
   }
 
+  async fillSearchBar(name: string){
+    await this.page.locator(CompanyLocators.searchBar).fill(name);
+    
   async fillName(name: string) {
     await this.page.locator(CompanyLocators.nameField).fill(name);
   }
