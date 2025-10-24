@@ -37,6 +37,7 @@ export const ProductLocators = {
   actionMenu: '.ant-dropdown-menu',
   actionMenuVisible: '.ant-dropdown-menu:not(.ant-dropdown-menu-hidden)',
   showOption: '.ant-dropdown-menu-item:has-text("Show")',
+  editOption: '.ant-dropdown-menu-item:has-text("Edit")',
   
   // Product details side panel
   productDetailsPanel: '.ant-drawer-content',

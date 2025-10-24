@@ -313,6 +313,14 @@ export class ProductPage {
     await this.page.locator(ProductLocators.showOption).click();
   }
 
+  async clickEditOption() {
+    await this.page.locator(ProductLocators.editOption).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    await this.page.locator(ProductLocators.editOption).click();
+  }
+
   async isProductDetailsPanelVisible(): Promise<boolean> {
     try {
       await this.page.locator(ProductLocators.productDetailsPanel).waitFor({ 
