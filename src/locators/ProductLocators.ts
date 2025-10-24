@@ -36,4 +36,13 @@ export const ProductLocators = {
   threeDotMenuButton: '.ant-table-tbody span[aria-label="ellipsis"]',
   actionMenu: '.ant-dropdown-menu',
   actionMenuVisible: '.ant-dropdown-menu:not(.ant-dropdown-menu-hidden)',
+  showOption: '.ant-dropdown-menu-item:has-text("Show")',
+  
+  // Product details side panel
+  productDetailsPanel: '.ant-drawer-content',
+  productDetailsPanelTitle: '.ant-drawer-header .ant-drawer-title',
+  productNameInPanel: '.ant-drawer-body',
+  productCategoryInPanel: '.ant-drawer-body',
+  productPriceInPanel: '.ant-drawer-body',
+  closePanelButton: '.ant-drawer-close',
 };

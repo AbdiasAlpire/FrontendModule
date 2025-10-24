@@ -304,4 +304,73 @@ export class ProductPage {
     }
     return options;
   }
+
+  async clickShowOption() {
+    await this.page.locator(ProductLocators.showOption).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    await this.page.locator(ProductLocators.showOption).click();
+  }
+
+  async isProductDetailsPanelVisible(): Promise<boolean> {
+    try {
+      await this.page.locator(ProductLocators.productDetailsPanel).waitFor({ 
+        state: "visible", 
+        timeout: 5000 
+      });
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  async getProductDetailsPanelTitle(): Promise<string> {
+    await this.page.locator(ProductLocators.productDetailsPanelTitle).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    return await this.page.locator(ProductLocators.productDetailsPanelTitle).innerText();
+  }
+
+  async getProductNameFromPanel(): Promise<string> {
+    await this.page.locator(ProductLocators.productDetailsPanel).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    const panelText = await this.page.locator('.ant-drawer-body').innerText();
+    const lines = panelText.split('\n');
+    const nameIndex = lines.findIndex(line => line.includes('Name'));
+    return nameIndex !== -1 && nameIndex + 1 < lines.length ? lines[nameIndex + 1].trim() : '';
+  }
+
+  async getProductCategoryFromPanel(): Promise<string> {
+    await this.page.locator(ProductLocators.productDetailsPanel).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    const panelText = await this.page.locator('.ant-drawer-body').innerText();
+    const lines = panelText.split('\n');
+    const categoryIndex = lines.findIndex(line => line.includes('Product Category'));
+    return categoryIndex !== -1 && categoryIndex + 1 < lines.length ? lines[categoryIndex + 1].trim() : '';
+  }
+
+  async getProductPriceFromPanel(): Promise<string> {
+    await this.page.locator(ProductLocators.productDetailsPanel).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    const panelText = await this.page.locator('.ant-drawer-body').innerText();
+    const lines = panelText.split('\n');
+    const priceIndex = lines.findIndex(line => line.includes('Price'));
+    return priceIndex !== -1 && priceIndex + 1 < lines.length ? lines[priceIndex + 1].trim() : '';
+  }
+
+  async closeProductDetailsPanel() {
+    await this.page.locator(ProductLocators.closePanelButton).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    await this.page.locator(ProductLocators.closePanelButton).click();
+  }
 }
