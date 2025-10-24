@@ -26,4 +26,7 @@ export const PeoplesLocators = {
   personThreeDotMenu:
     '.anticon.anticon-ellipsis.ant-dropdown-trigger[aria-label="ellipsis"]',
   deletePersonDotMenu: ".anticon.anticon-delete.ant-dropdown-menu-item-icon",
+  emailFormatMessage: ".ant-form-item-explain-error",
+  emailInput: '//input[@id="email"]',
+  addNewPersonForm: '//div[@class="collapseBox "]',
 };
