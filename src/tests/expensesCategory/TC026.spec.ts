@@ -8,19 +8,16 @@ const test = mergeTests(loggedInTest, SideMenuTest, expensesCategoryTest);
 
 dotenv.config();
 
-test("TC012: Verify that a user can create an Expense Category successfully", async ({sideMenuComponent, expensesCategoryPage}) => {
-  const name:string = 'Category 1';
-  const description:string = 'Description Category 1';
-  const color:string = 'blue';
+test("TC026: Verify that Expense Category creation fails when required fields are left empty", async ({sideMenuComponent, expensesCategoryPage}) => {
+  const name:string = 'Category 9';
+  const description:string = 'Description Category 9';
+  const color:string = 'orangered';
   await sideMenuComponent.clickExpensesCategoryOption();
   await expensesCategoryPage.clickAddExpensesCategoryButton();
   await expensesCategoryPage.waitForExpensesCategoryContainer();
-  await expensesCategoryPage.fillNameInput(name);
-  await expensesCategoryPage.fillDescriptionInput(description);
-  await expensesCategoryPage.fillColorInput(color);
   await expensesCategoryPage.clickSubmitButton(); 
-  await expensesCategoryPage.clickCloseContainer();
+  await expensesCategoryPage.clickCloseCreation();
   await expensesCategoryPage.clickRefreshButton();
   const contentTable = await expensesCategoryPage.getContentTable(name, description, color);
-  await expect(contentTable).not.toHaveCount(0);
+  await expect(contentTable).toHaveCount(0);
 });
