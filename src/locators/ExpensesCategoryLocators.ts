@@ -17,5 +17,8 @@ export const ExpensesCategoryLocators = {
   searchInput: `Search`,
   threePointsButton: `ellipsis`,
   infoPopUp: `//div[@role='dialog']`,
-  textValuePopUp: `//div[@class="ant-col ant-col-14 gutter-row css-1lk2pln"]/p`
+  textValuePopUp: `//div[@class="ant-col ant-col-14 gutter-row css-1lk2pln"]/p`,
+  removeButton: `Remove`,
+  deleteConfirmationPopup: `/html/body/div[5]/div/div[2]/div/div[1]`,
+  acceptRemoveButton: `/html/body/div[5]/div/div[2]/div/div[1]/div/div[3]/button[2]`
 };

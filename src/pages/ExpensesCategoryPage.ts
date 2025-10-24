@@ -121,4 +121,18 @@ export class ExpensesCategoryPage {
   async waitForPopUpDisplayed(timeout=5000){
     await this.page.locator(`xpath=${ExpensesCategoryLocators.infoPopUp}`).waitFor({ state: 'visible', timeout });
   }
+
+  async clickRemoveButtonFromPopup(timeout=5000){
+    const removeButton = this.page.locator('button', { hasText: ExpensesCategoryLocators.removeButton });
+    await removeButton.waitFor({ state: "visible", timeout })
+    await removeButton.click();
+  }
+
+  async waitForDeleteConfirmationPopUp(timeout = 5000){
+    await this.page.locator(`xpath=${ExpensesCategoryLocators.deleteConfirmationPopup}`).waitFor({ state: 'visible', timeout });
+  }
+
+  async clickAcceptButton(){
+    await this.page.locator(`xpath=${ExpensesCategoryLocators.acceptRemoveButton}`).click();
+  }
 }
