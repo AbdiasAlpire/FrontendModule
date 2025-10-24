@@ -321,6 +321,14 @@ export class ProductPage {
     await this.page.locator(ProductLocators.editOption).click();
   }
 
+  async clickCopyIdOption() {
+    await this.page.locator(ProductLocators.copyIdOption).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    await this.page.locator(ProductLocators.copyIdOption).click();
+  }
+
   async clickDeleteOption() {
     await this.page.locator(ProductLocators.deleteOption).waitFor({ 
       state: "visible", 

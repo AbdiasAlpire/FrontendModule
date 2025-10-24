@@ -38,6 +38,7 @@ export const ProductLocators = {
   actionMenuVisible: '.ant-dropdown-menu:not(.ant-dropdown-menu-hidden)',
   showOption: '.ant-dropdown-menu-item:has-text("Show")',
   editOption: '.ant-dropdown-menu-item:has-text("Edit")',
+  copyIdOption: '.ant-dropdown-menu-item:has-text("Copy ID")',
   deleteOption: '.ant-dropdown-menu-item:has-text("Delete")',
   
   // Delete confirmation
