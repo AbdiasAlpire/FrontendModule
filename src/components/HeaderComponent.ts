@@ -8,16 +8,22 @@ export class HeaderComponent {
     return this.page.locator(HeaderLocators.avatarButton);
   }
 
-  async clickAvatarElement(){
+  async clickAvatarElement() {
     (await this.getAvatarElement()).click();
   }
 
-  async waitForAvatarDropdown(timeout = 5000){
-    await this.page.locator(HeaderLocators.accountOwnerTag).waitFor({ state: "visible", timeout });
+  async waitForAvatarDropdown(timeout = 5000) {
+    await this.page
+      .locator(HeaderLocators.accountOwnerTag)
+      .waitFor({ state: "visible", timeout });
   }
 
-  async clickLogoutButton(){
+  async clickLogoutButton() {
     await this.waitForAvatarDropdown();
     await this.page.locator(HeaderLocators.logoutButton).click();
+  }
+
+  async clickPeoples(timeout = 5000) {
+    await this.page.locator(HeaderLocators.peoplesButton).click();
   }
 }

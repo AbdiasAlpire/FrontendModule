@@ -1,4 +1,4 @@
 export const SideMenuLocators = {
   ExpenseOption: "Expenses",
-  ExpensesCategoryOption: "Expenses Category",
+  PeoplesOption: "Peoples",
 };
