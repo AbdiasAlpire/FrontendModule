@@ -134,12 +134,32 @@ export class PeoplesPage {
       .isVisible();
   }
 
+  async waitForThreeDots(timeout = 3000) {
+    const threeDots = await this.page.locator(
+      PeoplesLocators.personThreeDotMenu
+    );
+    await threeDots.waitFor({ state: "visible", timeout });
+  }
+
   async clickThreeDotsMenuButton() {
-    await this.page.waitForTimeout(5000);
+    await this.waitForThreeDots();
     await this.page.locator(PeoplesLocators.personThreeDotMenu).first().click();
   }
+
   async clickDeleteDropDownButton() {
-    await this.page.waitForTimeout(5000);
     await this.page.locator(PeoplesLocators.deletePersonDotMenu).click();
+  }
+
+  async fillEmailInput(email: string) {
+    await this.page.locator(PeoplesLocators.emailInput).fill(email);
+  }
+
+  async waitEmailError(timeout = 1000) {
+    const emailInvalid = this.page.locator(PeoplesLocators.emailFormatMessage);
+    await emailInvalid.waitFor({ state: "visible", timeout });
+  }
+  async getEmailErrorMessage() {
+    await this.waitEmailError();
+    return this.page.locator(PeoplesLocators.emailFormatMessage).innerText();
   }
 }
