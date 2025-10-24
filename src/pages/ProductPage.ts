@@ -123,4 +123,24 @@ export class ProductPage {
       return false;
     }
   }
+
+  async isNoDataMessageVisible(): Promise<boolean> {
+    try {
+      await this.page.locator(ProductLocators.noDataMessage).waitFor({ 
+        state: "visible", 
+        timeout: 5000 
+      });
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  async getNoDataMessageText(): Promise<string> {
+    await this.page.locator(ProductLocators.noDataMessage).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    return await this.page.locator(ProductLocators.noDataMessage).innerText();
+  }
 }

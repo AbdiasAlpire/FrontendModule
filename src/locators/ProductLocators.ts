@@ -8,6 +8,7 @@ export const ProductLocators = {
   refreshButton: 'button[class="ant-btn css-1lk2pln ant-btn-default ant-btn-color-default ant-btn-variant-outlined"]',
   productTable: '.ant-table-wrapper table',
   productTableRows: '.ant-table-tbody tr',
+  noDataMessage: '.ant-empty-description',
   
   // Add New Product modal elements
   addProductModal: '.ant-drawer-content',
