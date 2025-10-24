@@ -11,7 +11,7 @@ dotenv.config();
 test("TC023: Verify that the Expense Category information is retrieved successfully via popup ", async ({sideMenuComponent, expensesCategoryPage}) => {
   const name:string = 'Category 3';
   const description:string = 'Description Category 3';
-  const color:string = 'blue';
+  const color:string = 'orangered';
   await sideMenuComponent.clickExpensesCategoryOption();
   await expensesCategoryPage.clickAddExpensesCategoryButton();
   await expensesCategoryPage.waitForExpensesCategoryContainer();
