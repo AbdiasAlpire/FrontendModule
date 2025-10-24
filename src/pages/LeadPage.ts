@@ -27,4 +27,44 @@ export class LeadPage {
     const count = await errors.count();
     return count;
   }
+
+  async getComboboxByName(title: string) {
+    return this.page.locator('.ant-form-item-row').filter({ hasText: title }).getByRole('combobox').first();  
+  }  
+
+  async getComboboxOption(){
+    return this.page.locator(LeadLocators.comboboxOption);
+  }
+
+  async getComboboxOptionByText(name: string){
+    return this.page.locator(LeadLocators.comboboxOptionByText).filter({ hasText: name });   
+  }
+
+  async fillName(name: string) {
+    await this.page.locator(LeadLocators.nameField).fill(name);
+  }
+
+  async fillEmail(email: string) {
+    await this.page.locator(LeadLocators.emailField).fill(email);
+  }
+
+  async fillPhoneNumber(phoneNumber: string) {
+    await this.page.locator(LeadLocators.phoneNumberField).fill(phoneNumber);
+  }
+
+  async getSuccessPopUpMessage() {
+    return this.page.locator(LeadLocators.successPopUpMessage);
+  }
+
+  async getTableCell() {
+    return this.page.locator(LeadLocators.tableCell).first();
+  }
+
+  async getTableNameColumn() {
+    return this.page.locator(LeadLocators.tableCell).nth(2);
+  }
+
+  async getCountryCombobox() {
+    return this.page.locator(LeadLocators.countryCombobox);
+  }
 }
