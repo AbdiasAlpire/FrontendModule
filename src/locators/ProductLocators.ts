@@ -38,6 +38,12 @@ export const ProductLocators = {
   actionMenuVisible: '.ant-dropdown-menu:not(.ant-dropdown-menu-hidden)',
   showOption: '.ant-dropdown-menu-item:has-text("Show")',
   editOption: '.ant-dropdown-menu-item:has-text("Edit")',
+  deleteOption: '.ant-dropdown-menu-item:has-text("Delete")',
+  
+  // Delete confirmation
+  confirmationModal: '.ant-modal-content',
+  confirmButton: '.ant-modal-root button:nth-child(2)',
+  cancelButton: '.ant-modal-root button:nth-child(1)',
   
   // Product details side panel
   productDetailsPanel: '.ant-drawer-content',

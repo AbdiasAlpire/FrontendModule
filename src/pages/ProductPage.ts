@@ -321,6 +321,42 @@ export class ProductPage {
     await this.page.locator(ProductLocators.editOption).click();
   }
 
+  async clickDeleteOption() {
+    await this.page.locator(ProductLocators.deleteOption).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    await this.page.locator(ProductLocators.deleteOption).click();
+  }
+
+  async isConfirmationModalVisible(): Promise<boolean> {
+    try {
+      await this.page.locator(ProductLocators.confirmationModal).waitFor({ 
+        state: "visible", 
+        timeout: 5000 
+      });
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  async clickConfirmButton() {
+    await this.page.locator(ProductLocators.confirmButton).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    await this.page.locator(ProductLocators.confirmButton).click();
+  }
+
+  async clickCancelButton() {
+    await this.page.locator(ProductLocators.cancelButton).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    await this.page.locator(ProductLocators.cancelButton).click();
+  }
+
   async isProductDetailsPanelVisible(): Promise<boolean> {
     try {
       await this.page.locator(ProductLocators.productDetailsPanel).waitFor({ 
