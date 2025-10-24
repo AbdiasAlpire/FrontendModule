@@ -23,6 +23,7 @@ export const ProductLocators = {
   currencyDropdown: '#currency',
   currencyOption: (currency: string) => `.ant-select-item-option-content:has-text("${currency}")`,
   priceInput: 'input#price',
+  priceErrorMessage: '#price_help .ant-form-item-explain-error',
   descriptionTextarea: 'textarea#description',
   imageUploadInput: 'input[type="file"]',
   submitProductButton: 'button[type="submit"]',
