@@ -8,10 +8,10 @@ const test = mergeTests(loggedInTest, SideMenuTest, expensesCategoryTest);
 
 dotenv.config();
 
-test("TC012: Verify that a user can create an Expense Category successfully", async ({sideMenuComponent, expensesCategoryPage}) => {
-  const name:string = 'Category 1';
-  const description:string = 'Description Category 1';
-  const color:string = 'blue';
+test("TC024: Verify that an Expense Category can be deleted successfully", async ({sideMenuComponent, expensesCategoryPage}) => {
+  const name:string = 'Category 5';
+  const description:string = 'Description Category 5';
+  const color:string = 'orangered';
   await sideMenuComponent.clickExpensesCategoryOption();
   await expensesCategoryPage.clickAddExpensesCategoryButton();
   await expensesCategoryPage.waitForExpensesCategoryContainer();
@@ -21,6 +21,13 @@ test("TC012: Verify that a user can create an Expense Category successfully", as
   await expensesCategoryPage.clickSubmitButton(); 
   await expensesCategoryPage.clickCloseContainer();
   await expensesCategoryPage.clickRefreshButton();
+  await expensesCategoryPage.clickThreePointsButton();
+  await expensesCategoryPage.clickShowOption();
+  await expensesCategoryPage.waitForPopUpDisplayed();
+  await expensesCategoryPage.clickRemoveButtonFromPopup();
+  await expensesCategoryPage.waitForDeleteConfirmationPopUp();
+  await expensesCategoryPage.clickAcceptButton();
+  await expensesCategoryPage.clickRefreshButton();
   const contentTable = await expensesCategoryPage.getContentTable(name, description, color);
-  await expect(contentTable).not.toHaveCount(0);
+  await expect(contentTable).toHaveCount(0);
 });
