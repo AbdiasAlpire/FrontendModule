@@ -87,4 +87,74 @@ export class ExpensesCategoryPage {
     await searchInput.fill(searchText);
     await searchInput.press('Enter');
   }
+
+  async clickThreePointsButton(timeout = 5000){
+    const threePointsButton = this.page.getByRole('img', { name: ExpensesCategoryLocators.threePointsButton }).nth(0);
+    await threePointsButton.waitFor({ state: "visible", timeout })
+    await threePointsButton.click();
+  }
+
+  async clickShowOption(timeout=5000){
+    const showButton = this.page.getByRole('menuitem', { name: ExpensesCategoryLocators.showOption });
+    await showButton.waitFor({ state: "visible", timeout })
+    await showButton.click();
+  }
+
+  async getNamePopUp(timeout=5000):Promise<any>{
+    const namePopUp = this.page.locator(ExpensesCategoryLocators.textValuePopUp).nth(0);
+    await namePopUp.waitFor({ state: "visible", timeout })
+    return namePopUp;
+  }
+
+  async getDescriptionPopUp(timeout=5000):Promise<any>{
+    const descriptionPopUp = this.page.locator(ExpensesCategoryLocators.textValuePopUp).nth(1);
+    await descriptionPopUp.waitFor({ state: "visible", timeout })
+    return descriptionPopUp;
+  }
+
+  async getColorPopUp(timeout=5000):Promise<any>{
+    const colorPopUp = this.page.locator(ExpensesCategoryLocators.textValuePopUp).nth(2);
+    await colorPopUp.waitFor({ state: "visible", timeout })
+    return colorPopUp;
+  }
+
+  async waitForPopUpDisplayed(timeout=5000){
+    await this.page.locator(`xpath=${ExpensesCategoryLocators.infoPopUp}`).waitFor({ state: 'visible', timeout });
+  }
+
+  async clickRemoveButtonFromPopup(timeout=5000){
+    const removeButton = this.page.locator('button', { hasText: ExpensesCategoryLocators.removeButton });
+    await removeButton.waitFor({ state: "visible", timeout })
+    await removeButton.click();
+  }
+
+  async clickEditButtonFromPopup(timeout=5000){
+    const removeButton = this.page.locator('button', { hasText: ExpensesCategoryLocators.editButton });
+    await removeButton.waitFor({ state: "visible", timeout })
+    await removeButton.click();
+  }
+
+  async waitForDeleteConfirmationPopUp(timeout = 5000){
+    await this.page.locator(`xpath=${ExpensesCategoryLocators.deleteConfirmationPopup}`).waitFor({ state: 'visible', timeout });
+  }
+
+  async clickAcceptButton(){
+    await this.page.locator(`xpath=${ExpensesCategoryLocators.acceptRemoveButton}`).click();
+  }
+
+  async waitForDataToEdit(timeout = 5000){
+    await this.page.locator(`xpath=${ExpensesCategoryLocators.deleteConfirmationPopup}`).waitFor({ state: 'visible', timeout });
+  }
+
+  async clickCloseCreation(timeout = 5000) {
+    const closeContainerButton = this.page.locator(ExpensesCategoryLocators.closeContainerButton);
+    await closeContainerButton.waitFor({ state: "visible", timeout });
+    await closeContainerButton.click();
+  }
+
+    async clickRemoveOption(timeout=5000){
+    const removeButton = this.page.getByRole('menuitem', { name: ExpensesCategoryLocators.removeOption });
+    await removeButton.waitFor({ state: "visible", timeout })
+    await removeButton.click();
+  }
 }
