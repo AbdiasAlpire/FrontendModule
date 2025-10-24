@@ -8,10 +8,11 @@ const test = mergeTests(loggedInTest, SideMenuTest, expensesCategoryTest);
 
 dotenv.config();
 
-test("TC012: Verify that a user can create an Expense Category successfully", async ({sideMenuComponent, expensesCategoryPage}) => {
-  const name:string = 'Category 1';
-  const description:string = 'Description Category 1';
-  const color:string = 'blue';
+test("TC022: Verify that a user can search for an Expense Category created successfully", async ({sideMenuComponent, expensesCategoryPage}) => {
+  const name:string = 'Category 3';
+  const description:string = 'Description Category 3';
+  const color:string = 'red';
+  const searchText:string = '3';
   await sideMenuComponent.clickExpensesCategoryOption();
   await expensesCategoryPage.clickAddExpensesCategoryButton();
   await expensesCategoryPage.waitForExpensesCategoryContainer();
@@ -21,6 +22,8 @@ test("TC012: Verify that a user can create an Expense Category successfully", as
   await expensesCategoryPage.clickSubmitButton(); 
   await expensesCategoryPage.clickCloseContainer();
   await expensesCategoryPage.clickRefreshButton();
+  await expensesCategoryPage.fillSearchField(searchText);
   const contentTable = await expensesCategoryPage.getContentTable(name, description, color);
+  console.log(contentTable);
   await expect(contentTable).not.toHaveCount(0);
 });
