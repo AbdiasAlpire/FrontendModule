@@ -9,7 +9,9 @@ export class PeoplesPage {
   }
 
   async clickAddNewPersonButton() {
-    await this.page.locator(PeoplesLocators.addNewPersonButton).click();
+    const button = this.page.locator(PeoplesLocators.addNewPersonButton);
+    await button.waitFor({ state: "visible" });
+    await button.click();
   }
 
   async fillFirstName(firstname: string) {
