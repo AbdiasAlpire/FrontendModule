@@ -2,12 +2,11 @@ import { mergeTests, expect } from "@playwright/test";
 import { test as loggedInTest } from "../../fixtures/LoggedInFixture";
 import { test as customerTest } from "../../fixtures/CustomerPageFixture";
 import * as dotenv from "dotenv";
+dotenv.config();
 
 const test = mergeTests(loggedInTest, customerTest);
 
-dotenv.config();
-
-test("TC027: Verify customer cannot be created withoud mandatory fields", async ({
+test("TC027: Verify customer cannot be created without mandatory fields", async ({
   customerPage,
   loginPage,
 }) => {
