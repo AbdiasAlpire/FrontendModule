@@ -8,11 +8,10 @@ const test = mergeTests(loggedInTest, SideMenuTest, expensesCategoryTest);
 
 dotenv.config();
 
-test("TC022: Verify that a user can search for an Expense Category created successfully", async ({sideMenuComponent, expensesCategoryPage}) => {
-  const name:string = 'Category 3';
-  const description:string = 'Description Category 3';
-  const color:string = 'red';
-  const searchText:string = '3';
+test("TC024: Verify that an Expense Category can be deleted successfully", async ({sideMenuComponent, expensesCategoryPage}) => {
+  const name:string = 'Category 5';
+  const description:string = 'Description Category 5';
+  const color:string = 'orangered';
   await sideMenuComponent.clickExpensesCategoryOption();
   await expensesCategoryPage.clickAddExpensesCategoryButton();
   await expensesCategoryPage.waitForExpensesCategoryContainer();
@@ -22,7 +21,13 @@ test("TC022: Verify that a user can search for an Expense Category created succe
   await expensesCategoryPage.clickSubmitButton(); 
   await expensesCategoryPage.clickCloseContainer();
   await expensesCategoryPage.clickRefreshButton();
-  await expensesCategoryPage.fillSearchField(searchText);
+  await expensesCategoryPage.clickThreePointsButton();
+  await expensesCategoryPage.clickShowOption();
+  await expensesCategoryPage.waitForPopUpDisplayed();
+  await expensesCategoryPage.clickRemoveButtonFromPopup();
+  await expensesCategoryPage.waitForDeleteConfirmationPopUp();
+  await expensesCategoryPage.clickAcceptButton();
+  await expensesCategoryPage.clickRefreshButton();
   const contentTable = await expensesCategoryPage.getContentTable(name, description, color);
-  await expect(contentTable).not.toHaveCount(0);
+  await expect(contentTable).toHaveCount(0);
 });
