@@ -11,7 +11,7 @@ test("TC019: Verify person cannot be created without filling madatory fields", a
   peoplesPage,
   headerComponent,
 }) => {
-  await peoplesPage.goto();
+  await headerComponent.clickPeoples();
   await peoplesPage.clickAddNewPersonButton();
   await peoplesPage.clickSumitButton();
   await peoplesPage.page.waitForTimeout(2000);

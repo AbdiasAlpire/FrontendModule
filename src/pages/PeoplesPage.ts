@@ -4,16 +4,12 @@ import { PeoplesLocators } from "../locators/PeoplesLocators";
 export class PeoplesPage {
   constructor(public page: Page) {}
 
-  async goto() {
-    await this.page.goto("/people", { waitUntil: "networkidle" });
-  }
-
-  get addNewPersonButton() {
+  async getaddNewPersonButton() {
     return this.page.locator(PeoplesLocators.addNewPersonButton);
   }
 
   async clickAddNewPersonButton() {
-    const button = this.addNewPersonButton;
+    const button = this.page.locator(PeoplesLocators.addNewPersonButton);
     await button.waitFor({ state: "visible" });
     await button.click();
   }
@@ -81,6 +77,7 @@ export class PeoplesPage {
     await this.waitForEditButton();
     await this.page.locator(PeoplesLocators.editPersonButton).click();
   }
+
   async getEditMessage(timeout = 5000) {
     const confirmation = this.page.locator(
       PeoplesLocators.editConfirmationContainer
@@ -91,7 +88,13 @@ export class PeoplesPage {
       .innerText();
   }
 
-  async clickSearchPersonBox() {
+  async waitForSearchbox(timeout = 3000) {
+    const clickSearch = this.page.locator(PeoplesLocators.searchTextBox);
+    await clickSearch.waitFor({ state: "visible", timeout });
+  }
+
+  async clickSearchPersonBox(timeout = 3000) {
+    await this.waitForSearchbox();
     await this.page.locator(PeoplesLocators.searchTextBox).click();
   }
 
@@ -99,7 +102,13 @@ export class PeoplesPage {
     await this.page.locator(PeoplesLocators.searchTextBox).fill(personName);
   }
 
+  async waitForFirstRow(timeout = 2000) {
+    const firstRow = this.page.locator(PeoplesLocators.firstNameRowValue);
+    await firstRow.waitFor({ state: "visible", timeout });
+  }
+
   async getFirstRow() {
+    await this.waitForFirstRow();
     return await this.page
       .locator(PeoplesLocators.firstNameRowValue)
       .innerText();
@@ -123,5 +132,14 @@ export class PeoplesPage {
     return this.page
       .locator(PeoplesLocators.lastNameMandatoryMessage)
       .isVisible();
+  }
+
+  async clickThreeDotsMenuButton() {
+    await this.page.waitForTimeout(5000);
+    await this.page.locator(PeoplesLocators.personThreeDotMenu).first().click();
+  }
+  async clickDeleteDropDownButton() {
+    await this.page.waitForTimeout(5000);
+    await this.page.locator(PeoplesLocators.deletePersonDotMenu).click();
   }
 }
