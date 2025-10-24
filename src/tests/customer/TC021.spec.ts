@@ -16,7 +16,11 @@ test("TC021: Verify a new customer can be created by type people", async ({
   await customerPage.clickTypeDropDown();
   await customerPage.selectPeopleAsType();
   await customerPage.clickSearchBox();
-  await customerPage.fillSearchBox("Search");
-  await customerPage.clickFirstRow();
+  await customerPage.fillSearchBox("SearchTest");
+  await customerPage.clickSearchResult("SearchTest");
   await customerPage.clickSummitButton();
+  const creationMessage = await customerPage.getCreationMessage();
+  expect(creationMessage).toContain(
+    "Successfully Created the document in Model"
+  );
 });

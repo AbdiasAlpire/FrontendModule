@@ -12,7 +12,7 @@ export class CustomerPage {
     const newCustomerButton = await this.page.locator(
       CustomerLocators.addNewCustomer
     );
-    newCustomerButton.waitFor({ state: "visible", timeout });
+    await newCustomerButton.waitFor({ state: "visible", timeout });
   }
 
   async clickAddNewCustomer() {
@@ -22,7 +22,7 @@ export class CustomerPage {
 
   async waitForFormContainer(timeout = 1000) {
     const container = await this.page.locator(CustomerLocators.formContainer);
-    container.waitFor({ state: "visible", timeout });
+    await container.waitFor({ state: "visible", timeout });
   }
 
   async clickTypeDropDown() {
@@ -46,17 +46,24 @@ export class CustomerPage {
     await this.page.locator(CustomerLocators.searchPeople).fill(person);
   }
 
-  async waitSelectListRow(timeout: 2000) {
-    const waitlist = await this.page.locator(CustomerLocators.selectFirstRow);
-    waitlist.waitFor({ state: "visible", timeout });
-  }
-
-  async clickFirstRow() {
-    await this.waitSelectListRow();
-    await this.page.locator(CustomerLocators.selectFirstRow).click();
+  async clickSearchResult(person: string) {
+    const xpath = `//div[contains(text(),"${person}")]`;
+    const result = this.page.locator(xpath);
+    await result.waitFor({ state: "visible", timeout: 5000 });
+    await result.click();
   }
 
   async clickSummitButton() {
-    await this.page.locator(CustomerLocators.summitCustumer).click();
+    const button = await this.page.locator(CustomerLocators.summitCustumer);
+    await button.waitFor({ state: "visible", timeout: 2000 });
+    await button.click();
+  }
+
+  async getCreationMessage(timeout = 5000) {
+    const toast = this.page.locator(CustomerLocators.successCreationContainer);
+    await toast.waitFor({ state: "visible", timeout });
+    return this.page
+      .locator(CustomerLocators.successCreationDescription)
+      .innerText();
   }
 }
