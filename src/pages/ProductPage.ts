@@ -66,4 +66,57 @@ export class ProductPage {
       return false;
     }
   }
+
+  async searchProduct(productName: string) {
+    await this.page.locator(ProductLocators.searchBox).waitFor({ 
+      state: "visible", 
+      timeout: 10000 
+    });
+    await this.page.locator(ProductLocators.searchBox).fill(productName);
+    // Wait for search to be applied (debounce delay)
+    await this.page.waitForTimeout(1000);
+  }
+
+  async clearSearchBox() {
+    await this.page.locator(ProductLocators.searchBox).waitFor({ 
+      state: "visible", 
+      timeout: 10000 
+    });
+    await this.page.locator(ProductLocators.searchBox).clear();
+  }
+
+  async clickRefreshButton() {
+    await this.page.locator(ProductLocators.refreshButton).waitFor({ 
+      state: "visible", 
+      timeout: 10000 
+    });
+    await this.page.locator(ProductLocators.refreshButton).click();
+    // Wait for the page to refresh
+    await this.page.waitForLoadState("networkidle");
+  }
+
+  async getSearchBoxValue(): Promise<string> {
+    return await this.page.locator(ProductLocators.searchBox).inputValue();
+  }
+
+  async getProductTableRowCount(): Promise<number> {
+    await this.page.locator(ProductLocators.productTable).waitFor({ 
+      state: "visible", 
+      timeout: 10000 
+    });
+    const rows = await this.page.locator(ProductLocators.productTableRows).all();
+    return rows.length;
+  }
+
+  async isProductTableVisible(): Promise<boolean> {
+    try {
+      await this.page.locator(ProductLocators.productTable).waitFor({ 
+        state: "visible", 
+        timeout: 5000 
+      });
+      return true;
+    } catch {
+      return false;
+    }
+  }
 }
