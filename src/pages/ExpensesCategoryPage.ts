@@ -145,4 +145,10 @@ export class ExpensesCategoryPage {
   async waitForDataToEdit(timeout = 5000){
     await this.page.locator(`xpath=${ExpensesCategoryLocators.deleteConfirmationPopup}`).waitFor({ state: 'visible', timeout });
   }
+
+  async clickCloseCreation(timeout = 5000) {
+    const closeContainerButton = this.page.locator(ExpensesCategoryLocators.closeContainerButton);
+    await closeContainerButton.waitFor({ state: "visible", timeout });
+    await closeContainerButton.click();
+  }
 }
