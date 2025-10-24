@@ -31,4 +31,9 @@ export const ProductLocators = {
   // Success notification
   successNotification: '.ant-notification-notice-success',
   successNotificationDescription: '.ant-notification-notice-description',
+  
+  // Product actions menu
+  threeDotMenuButton: '.ant-table-tbody span[aria-label="ellipsis"]',
+  actionMenu: '.ant-dropdown-menu',
+  actionMenuVisible: '.ant-dropdown-menu:not(.ant-dropdown-menu-hidden)',
 };

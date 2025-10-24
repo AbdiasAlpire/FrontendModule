@@ -270,4 +270,38 @@ export class ProductPage {
     });
     return await this.page.locator(ProductLocators.priceErrorMessage).innerText();
   }
+
+  async clickThreeDotMenuForFirstProduct() {
+    await this.page.locator(ProductLocators.threeDotMenuButton).first().waitFor({ 
+      state: "visible", 
+      timeout: 10000 
+    });
+    await this.page.locator(ProductLocators.threeDotMenuButton).first().click();
+  }
+
+  async isActionMenuVisible(): Promise<boolean> {
+    try {
+      await this.page.locator(ProductLocators.actionMenuVisible).waitFor({ 
+        state: "visible", 
+        timeout: 5000 
+      });
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  async getActionMenuOptions(): Promise<string[]> {
+    await this.page.locator(ProductLocators.actionMenuVisible).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    const menuItems = await this.page.locator(`${ProductLocators.actionMenu} .ant-dropdown-menu-item`).all();
+    const options: string[] = [];
+    for (const item of menuItems) {
+      const text = await item.innerText();
+      options.push(text);
+    }
+    return options;
+  }
 }
