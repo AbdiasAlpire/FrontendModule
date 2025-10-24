@@ -136,3 +136,6 @@ vite.config.ts.timestamp-*
 # Playwright stuff
 playwright-report/
 test-results/
+
+# Test data
+src/test-data/
