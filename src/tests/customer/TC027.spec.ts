@@ -7,7 +7,7 @@ const test = mergeTests(loggedInTest, customerTest);
 
 dotenv.config();
 
-test("TC028: Verify customer cannot be created withoud mandatory fields", async ({
+test("TC027: Verify customer cannot be created withoud mandatory fields", async ({
   customerPage,
   loginPage,
 }) => {
