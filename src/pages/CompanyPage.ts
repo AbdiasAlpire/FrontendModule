@@ -24,4 +24,14 @@ export class CompanyPage {
   async getEmailErrorMesage() {
     return this.page.locator(CompanyLocators.emailEmptyMessage);
   }
+
+  async clickRefreshButton() {
+    const submitButton = this.page.locator(CompanyLocators.refreshButton);
+    await submitButton.waitFor({state: "visible", timeout: 5000});
+    await submitButton.click();
+  }
+
+  async getTableCell() {
+    return this.page.locator(CompanyLocators.tableCell).first();
+  }
 }
