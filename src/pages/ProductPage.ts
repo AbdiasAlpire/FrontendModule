@@ -96,6 +96,10 @@ export class ProductPage {
   }
 
   async getSearchBoxValue(): Promise<string> {
+    await this.page.locator(ProductLocators.searchBox).waitFor({ 
+      state: "visible", 
+      timeout: 10000 
+    });
     return await this.page.locator(ProductLocators.searchBox).inputValue();
   }
 
