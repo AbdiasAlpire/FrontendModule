@@ -230,4 +230,24 @@ export class ProductPage {
       return false;
     }
   }
+
+  async isNameErrorVisible(): Promise<boolean> {
+    try {
+      await this.page.locator(ProductLocators.nameErrorMessage).waitFor({ 
+        state: "visible", 
+        timeout: 5000 
+      });
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  async getNameErrorMessage(): Promise<string> {
+    await this.page.locator(ProductLocators.nameErrorMessage).waitFor({ 
+      state: "visible", 
+      timeout: 5000 
+    });
+    return await this.page.locator(ProductLocators.nameErrorMessage).innerText();
+  }
 }

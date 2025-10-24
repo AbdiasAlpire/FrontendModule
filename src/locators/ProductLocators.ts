@@ -17,6 +17,7 @@ export const ProductLocators = {
   
   // Add Product form fields
   nameInput: 'input#name',
+  nameErrorMessage: '#name_help .ant-form-item-explain-error',
   productCategoryDropdown: '#rc_select_4',
   productCategoryOption: (category: string) => `.ant-select-item-option-content:has-text("${category}")`,
   currencyDropdown: '#currency',
