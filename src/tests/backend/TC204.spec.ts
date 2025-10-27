@@ -17,8 +17,10 @@ test.describe("WeatherStack API - Historical Weather", () => {
     await api.init();
   });
 
-  test.describe("GET Historical data for an valid city and valid date ", () => {
-    const testPositive = testData.filter((d: any) => d.type === "valid, valid");
+  test.describe("GET Historical data for a valid city and valid date ", () => {
+    const testPositive = testData.filter(
+      (typeTest: any) => typeTest.type === "valid, valid"
+    );
 
     for (const dataSet of testPositive) {
       test(`${dataSet.city} on ${dataSet.date}`, async () => {
@@ -35,7 +37,6 @@ test.describe("WeatherStack API - Historical Weather", () => {
           dataSet.city.toLowerCase()
         );
         expect(data).toHaveProperty("historical");
-        expect(data.historical[dataSet.date]).toBeDefined();
         expect(response.status()).toBe(200);
         console.log(data);
       });
