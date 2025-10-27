@@ -57,8 +57,12 @@ export class ExpensesCategoryPage {
     await this.page.locator(ExpensesCategoryLocators.refreshButton).click();
   }
 
-  async getContentTable(timeout:number, name:string, description:string, color:string): Promise<any> {
+  async waitForSpinner(timeout:number){
     await this.page.locator(ExpensesCategoryLocators.refreshSpinner).waitFor({ state: 'detached', timeout }).catch(() => null);
+  }
+
+  async getContentTable(name:string, description:string, color:string): Promise<any> {
+    await this.waitForSpinner(6000);
     const tableRows = this.page.locator(ExpensesCategoryLocators.expensesCategoryTable);
     const targetRow = tableRows.filter({
       hasText: name,
@@ -76,5 +80,11 @@ export class ExpensesCategoryPage {
 
   async getToasterDescription(): Promise<string>{
     return await this.page.locator(ExpensesCategoryLocators.descriptionToaster).innerText();
+  }
+
+  async fillSearchField(searchText: string){
+    const searchInput = this.page.getByPlaceholder(ExpensesCategoryLocators.searchInput);
+    await searchInput.fill(searchText);
+    await searchInput.press('Enter');
   }
 }

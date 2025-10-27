@@ -10,8 +10,9 @@ export const ExpensesCategoryLocators = {
   closeToasterButton: `.ant-notification-notice-close`,
   popupSpinner: `.ant-spin-spinning`,
   refreshButton: `(//div[@class='ant-space-item'])[2]`,
-  expensesCategoryTable: `.ant-table-row`,
+  expensesCategoryTable: `.ant-table-tbody`,
   refreshSpinner: `.ant-spin-dot.ant-spin-dot-spin`,
   titleToaster: `.ant-notification-notice-message`,
-  descriptionToaster: `.ant-notification-notice-description`
+  descriptionToaster: `.ant-notification-notice-description`,
+  searchInput: `Search`
 };
