@@ -5,7 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d95f464-add3-4aae-bcbf-2e39130a3cf2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/tests/People/TC017.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/People/TC017.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/backend/TC100.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/api/ApiClient.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/api/Endpoints.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/config/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playwright.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/playwright.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LogInPage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LogInPage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/People/TC005.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/People/TC005.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/People/TC015.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/People/TC015.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/People/TC016.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/People/TC016.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/People/TC017.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/People/TC017.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/People/TC020.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/People/TC020.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/company/TC004.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/company/TC004.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/company/TC010.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/company/TC010.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/company/TC014.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/company/TC014.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/expensesCategory/TC012.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/expensesCategory/TC012.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/expensesCategory/TC018.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/expensesCategory/TC018.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/lead/TC007.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/lead/TC007.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/lead/TC013.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/lead/TC013.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/login/TC001.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/login/TC001.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/login/TC002.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/login/TC002.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/login/TC003.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/login/TC003.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/products/TC028.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/frontend/products/TC028.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,25 +77,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "example",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/frontendpw202509",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\Aqua 2024.3.1\\plugins\\javascript-base\\jsLanguageServicesImpl\\external"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Playwright.WeatherStack API - Current Weather.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/frontendpw202509&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\Aqua 2024.3.1\\plugins\\javascript-base\\jsLanguageServicesImpl\\external&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\frontendpw202509\src\tests\frontend" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="WeatherStack API - Current Weather" type="JavaScriptTestRunnerPlaywright" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <playwright-package value="$PROJECT_DIR$/node_modules/@playwright/test" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/tests/backend/TC100.spec.ts" />
+      <test-names>
+        <test-name value="WeatherStack API - Current Weather" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Playwright.WeatherStack API - Current Weather" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

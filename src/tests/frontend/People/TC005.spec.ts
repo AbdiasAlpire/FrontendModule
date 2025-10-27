@@ -1,7 +1,7 @@
 import { mergeTests } from "@playwright/test";
-import { test as loggedInTest } from "../../fixtures/LoggedInFixture";
-import { test as peoplesTest } from "../../fixtures/PeoplesPageFixture";
-import { test as headerTest } from "../../fixtures/HeaderComponentFixture";
+import { test as loggedInTest } from "../../../fixtures/LoggedInFixture";
+import { test as peoplesTest } from "../../../fixtures/PeoplesPageFixture";
+import { test as headerTest } from "../../../fixtures/HeaderComponentFixture";
 import * as dotenv from "dotenv";
 
 const test = mergeTests(loggedInTest, peoplesTest, headerTest);

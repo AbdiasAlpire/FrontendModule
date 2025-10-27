@@ -1,7 +1,7 @@
 import { mergeTests } from "@playwright/test";
-import { test as expensesCategoryTest, expect } from "../../fixtures/ExpensesCategoryPageFixture";
-import { test as loggedInTest } from "../../fixtures/LoggedInFixture";
-import { test as SideMenuTest } from "../../fixtures/SideMenuComponentFixture";
+import { test as expensesCategoryTest, expect } from "../../../fixtures/ExpensesCategoryPageFixture";
+import { test as loggedInTest } from "../../../fixtures/LoggedInFixture";
+import { test as SideMenuTest } from "../../../fixtures/SideMenuComponentFixture";
 import * as dotenv from "dotenv";
 
 const test = mergeTests(loggedInTest, SideMenuTest, expensesCategoryTest);

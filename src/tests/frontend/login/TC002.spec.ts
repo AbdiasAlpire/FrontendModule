@@ -1,6 +1,6 @@
 import { mergeTests, expect } from "@playwright/test";
-import { test as loggedInTest } from "../../fixtures/LoggedInFixture";
-import { test as headerTest } from "../../fixtures/HeaderComponentFixture";
+import { test as loggedInTest } from "../../../fixtures/LoggedInFixture";
+import { test as headerTest } from "../../../fixtures/HeaderComponentFixture";
 import * as dotenv from "dotenv";
 
 const test = mergeTests(loggedInTest, headerTest);

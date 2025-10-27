@@ -1,5 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: 'https://cloud.idurarapp.com',
+    baseURL: process.env.BASE_URL || 'https://cloud.idurarapp.com',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -72,5 +72,7 @@ export default defineConfig({
   metadata: {
     userEmail: process.env.USER_EMAIL,
     userPassword: process.env.USER_PASSWORD,
+    apiBaseUrl: process.env.API_BASE_URL,
+    accessKey: process.env.ACCESS_KEY,
   },
 });

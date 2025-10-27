@@ -1,4 +1,4 @@
-import { test, expect } from "../../fixtures/LoginPageFixture";
+import { test, expect } from "../../../fixtures/LoginPageFixture";
 
 test("TC001: Verify login with invalid account", async ({ loginPage }) => {
   await loginPage.goTo();
