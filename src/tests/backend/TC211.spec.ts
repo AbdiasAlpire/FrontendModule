@@ -11,21 +11,17 @@ test.describe('WeatherStack API - Forecast', () => {
     await api.init();
   });
 
-  test('GET forecast with empty query', async () => {
-    let errorThrown = false;
+  test('GET forecast with empty query should return 400 Bad Request', async () => {
+    const params = {
+      access_key: config.accessKey,
+      query: '',
+    };
 
-    try {
-      await api.get(endpoints.weather.forecast, {
-        access_key: config.accessKey,
-        query: '',
-      });
-    } catch (error) {
-      errorThrown = true;
-      console.log('Expected failure: empty query caused non-OK response');
-      console.log(`Error message: ${(error as Error).message}`);
-    }
+    const response = await api.get(endpoints.weather.forecast, params);
 
-    expect(errorThrown).toBeTruthy();
+    expect(response.status()).toBe(400);
+
+    console.log(`Status code: ${response.status()} (Expected: 400 Bad Request)`);
   });
 
   test.afterAll(async () => {

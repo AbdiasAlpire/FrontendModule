@@ -1,6 +1,7 @@
 export const endpoints = {
     weather: {
         current: '/current',
-        forecast: '/forecast',
-    },
+        historical: "/historical",
+        forecast: '/forecast'
+  },
 };

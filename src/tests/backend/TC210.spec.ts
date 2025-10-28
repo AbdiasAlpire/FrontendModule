@@ -17,20 +17,17 @@ test.describe('WeatherStack API - Forecast', () => {
   for (const { city } of invalidCities as CityRecord[]) {
     const titleSafe = city && city.trim().length ? city : '(empty)';
 
-    test(`GET forecast with special characters: ${titleSafe}`, async () => {
-      let errorThrown = false;
+    test(`GET forecast with invalid characters: ${titleSafe}`, async () => {
+      const params = {
+        access_key: config.accessKey,
+        query: city,
+      };
 
-      try {
-        await api.get(endpoints.weather.forecast, {
-          access_key: config.accessKey,
-          query: city,
-        });
-      } catch (err) {
-        errorThrown = true;
-        console.log(`Expected failure for city="${titleSafe}": non-OK response captured`);
-      }
+      const response = await api.get(endpoints.weather.forecast, params);
 
-      expect(errorThrown).toBeTruthy();
+      expect(response.status()).toBe(400);
+
+      console.log(`Status code: ${response.status()} (Expected: 400 Bad Request) Query: "${titleSafe}"`);
     });
   }
 
