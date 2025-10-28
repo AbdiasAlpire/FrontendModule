@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Addison",
+    "country": "United States of America",
+    "region": "Texas",
+    "lat": "32.960",
+    "lon": "-96.839",
+    "timezone_id": "America/Chicago",
+    "localtime": "2025-10-28 07:04",
+    "utc_offset": "-5.0",
+    "ip": "134.201.250.155",
+    "zipCode": "75001"
+  },
+  {
+    "name": "New York",
+    "country": "United States of America",
+    "region": "New York",
+    "lat": "40.714",
+    "lon": "-74.006",
+    "timezone_id": "America/New_York",
+    "localtime": "2024-10-27 10:30",
+    "utc_offset": "-4.0",
+    "ip": "8.8.8.8",
+    "zipCode": "10001"
+  },
+  {
+    "name": "London",
+    "country": "United Kingdom",
+    "region": "Greater London",
+    "lat": "51.5074",
+    "lon": "-0.1278",
+    "timezone_id": "Europe/London",
+    "localtime": "2024-10-27 15:30",
+    "utc_offset": "1.0",
+    "ip": "81.2.69.142",
+    "zipCode": "EC1A"
+  },
+  {
+    "name": "Los Angeles",
+    "country": "United States of America",
+    "region": "California",
+    "lat": "34.0522",
+    "lon": "-118.2437",
+    "timezone_id": "America/Los_Angeles",
+    "localtime": "2024-10-27 07:30",
+    "utc_offset": "-7.0",
+    "ip": "104.16.123.96",
+    "zipCode": "90001"
+  },
+  {
+    "name": "Toronto",
+    "country": "Canada",
+    "region": "Ontario",
+    "lat": "43.651",
+    "lon": "-79.383",
+    "timezone_id": "America/Toronto",
+    "localtime": "2024-10-27 10:30",
+    "utc_offset": "-4.0",
+    "ip": "142.150.0.1",
+    "zipCode": "M5H 2N2"
+  }
+]

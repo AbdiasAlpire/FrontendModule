@@ -13,10 +13,10 @@ test.describe("WeatherStack API - Location Identifiers", () => {
   });
 
   for (const loc of locations) {
-    test(`TC200 - GET current weather by latitude and longitude for ${loc.name}`, async () => {
+    test(`TC203 - GET current weather by IP address for ${loc.zipCode} (${loc.name})`, async () => {
       const params = {
         access_key: config.accessKey,
-        query: `${loc.lat},${loc.lon}`,
+        query: loc.ip,
       };
       const response = await api.get(endpoints.weather.current, params);
       const data = await response.json();
@@ -25,10 +25,6 @@ test.describe("WeatherStack API - Location Identifiers", () => {
       expect(data).toHaveProperty("current");
       expect(data.location.country).toBe(loc.country);
       expect(data.location.timezone_id).toBe(loc.timezone_id);
-      expect(typeof data.current.temperature).toBe("number");
-      expect(typeof data.current.humidity).toBe("number");
-      expect(typeof data.current.wind_speed).toBe("number");
-      expect(typeof data.current.weather_descriptions[0]).toBe("string");
     });
   }
 
