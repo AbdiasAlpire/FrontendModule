@@ -19,7 +19,8 @@ test.describe("WeatherStack API - Historical Weather", () => {
 
   test.describe("GET Historical data for an invalid city a valid date ", () => {
     const testNegative = testData.filter(
-      (typeTest: any) => typeTest.type === "invalid, valid"
+      (typeTest: any) =>
+        typeTest.cityStatus === "invalid" && typeTest.dateStatus === "valid"
     );
     for (const dataSet of testNegative) {
       test(`${dataSet.city} on ${dataSet.date}`, async () => {
