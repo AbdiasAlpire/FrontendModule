@@ -11,7 +11,7 @@ test.describe("WeatherStack API - Location Identifiers", () => {
     await api.init();
   });
 
-  test("GET current weather for latitude and longitude", async () => {
+  test("TC200: GET current weather BY latitude and longitude", async () => {
     const params = {
       access_key: config.accessKey,
       query: "40.7831,-73.9712",
@@ -28,6 +28,25 @@ test.describe("WeatherStack API - Location Identifiers", () => {
     expect(typeof data.current.temperature).toBe("number");
 
     console.log(`Temp in ${data.location.name}: ${data.current.temperature}°C`);
+  });
+
+  test("TC201: GET current weather by city and country", async () => {
+    const params = {
+      access_key: config.accessKey,
+      query: "Paris,France",
+    };
+
+    const response = await api.get(endpoints.weather.current, params);
+    const data = await response.json();
+
+    expect(response.status()).toBe(200);
+    expect(data).toHaveProperty("location");
+    expect(data.location.name).toBe("Paris");
+    expect(data.location.country).toBe("France");
+    expect(data).toHaveProperty("current");
+    expect(typeof data.current.temperature).toBe("number");
+    expect(data.current).toHaveProperty("weather_descriptions");
+    expect(Array.isArray(data.current.weather_descriptions)).toBe(true);
   });
 
   test.afterAll(async () => {
