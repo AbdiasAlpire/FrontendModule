@@ -5,12 +5,8 @@ import { config } from "../../utils/config/config";
 import fs from "fs";
 import path from "path";
 
-const dataPath = path.resolve(
-  __dirname,
-  "../../utils/data/historicaldata.json"
-);
-const jsonData = fs.readFileSync(dataPath, "utf-8");
-const testData = JSON.parse(jsonData);
+const dataPath = path.resolve(__dirname, "../../utils/data/coords.json");
+const testData = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
 
 test.describe("WeatherStack API - Historical Weather", () => {
   let api: ApiClient;
@@ -20,34 +16,30 @@ test.describe("WeatherStack API - Historical Weather", () => {
     await api.init();
   });
 
-  test.describe("GET Historical data with hourly=1 ", () => {
-    const testPositive = testData.filter(
-      (typeTest: any) =>
-        typeTest.cityStatus === "valid" && typeTest.dateStatus === "valid"
-    );
-    for (const dataSet of testPositive) {
-      test(`${dataSet.city} on ${dataSet.date}`, async () => {
+  test.describe("GET Historical data using geographic coordinates", () => {
+    for (const { lat, lon } of testData) {
+      test(`weather for (${lat}, ${lon})`, async () => {
         const params = {
           access_key: config.accessKey,
-          query: dataSet.city,
-          historical_date: dataSet.date,
-          hourly: "1",
+          query: `${lat},${lon}`,
+          historical_date: "2024-10-10",
         };
+
         const response = await api.get(endpoints.weather.historical, params);
-        expect(response.ok()).toBeTruthy();
+        const status = response.status();
+        expect(status).toBe(200);
         const data = await response.json();
         expect(data).toHaveProperty("location");
-        expect(data.location.name.toLowerCase()).toContain(
-          dataSet.city.toLowerCase()
+        expect(data).toHaveProperty("location");
+        expect(data).toHaveProperty("request");
+        expect(data.request.type).toBe("LatLon");
+        console.log(
+          `Coordinates: ${lat},${lon} | Location: ${data.location.name}`
         );
-        expect(data).toHaveProperty("historical");
-        expect(response.status()).toBe(200);
-        expect(data.historical[dataSet.date].hourly).toBeInstanceOf(Array);
-        expect(data.historical[dataSet.date].hourly.length).toBeGreaterThan(0);
-        console.log(data);
       });
     }
   });
+
   test.afterAll(async () => {
     await api.close();
   });

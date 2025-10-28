@@ -5,10 +5,7 @@ import { config } from "../../utils/config/config";
 import fs from "fs";
 import path from "path";
 
-const dataPath = path.resolve(
-  __dirname,
-  "../../utils/data/historicaldata.json"
-);
+const dataPath = path.resolve(__dirname, "../../utils/data/invalidcities.json");
 const jsonData = fs.readFileSync(dataPath, "utf-8");
 const testData = JSON.parse(jsonData);
 
@@ -20,31 +17,22 @@ test.describe("WeatherStack API - Historical Weather", () => {
     await api.init();
   });
 
-  test.describe("GET Historical data with hourly=1 ", () => {
-    const testPositive = testData.filter(
+  test.describe("GET Historical data for a city in other languages and valid date", () => {
+    const testNegative = testData.filter(
       (typeTest: any) =>
-        typeTest.cityStatus === "valid" && typeTest.dateStatus === "valid"
+        typeTest.cityStatus === "special" && typeTest.dateStatus === "valid"
     );
-    for (const dataSet of testPositive) {
+    for (const dataSet of testNegative) {
       test(`${dataSet.city} on ${dataSet.date}`, async () => {
         const params = {
           access_key: config.accessKey,
           query: dataSet.city,
           historical_date: dataSet.date,
-          hourly: "1",
         };
         const response = await api.get(endpoints.weather.historical, params);
-        expect(response.ok()).toBeTruthy();
-        const data = await response.json();
-        expect(data).toHaveProperty("location");
-        expect(data.location.name.toLowerCase()).toContain(
-          dataSet.city.toLowerCase()
-        );
-        expect(data).toHaveProperty("historical");
-        expect(response.status()).toBe(200);
-        expect(data.historical[dataSet.date].hourly).toBeInstanceOf(Array);
-        expect(data.historical[dataSet.date].hourly.length).toBeGreaterThan(0);
-        console.log(data);
+        expect(response.status()).toBe(400);
+        const data = await response.text();
+        console.log(`status code:${response.status()} expected(400)`);
       });
     }
   });

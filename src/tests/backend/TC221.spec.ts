@@ -13,17 +13,18 @@ test.describe("WeatherStack API - Forecast", () => {
 
   test("GET Historical data for an invalid access_key", async () => {
     const params = {
-      access_key: "44ec39820e908d577b23f7b48dd0588d",
+      access_key: "43ec39820e908d577b23f7b48dd0588d",
       query: "New York",
       historical_date: "2014-10-10",
     };
 
     const response = await api.get(endpoints.weather.forecast, params);
+    const data = await response.json();
     expect(response.status()).toBe(401);
-    const bodyText = await response.text();
-    expect(bodyText).toContain("invalid_access_key");
+    expect(data).toHaveProperty("error");
+    expect(data.error.type).toBe("invalid_access_key");
     console.log(
-      `Status code: ${response.status()} (Expected: 401 Bad Request), ${bodyText}`
+      `Status code: ${response.status()} (Expected: 401 Bad Request)`
     );
   });
 
