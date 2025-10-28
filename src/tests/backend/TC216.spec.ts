@@ -17,24 +17,20 @@ test.describe("WeatherStack API - Historical Weather", () => {
     await api.init();
   });
 
-  test.describe("GET Historical data for a valid city and invalid date ", () => {
-    const testNegative = testData.filter(
-      (typeTest: any) => typeTest.type === "valid, invalid"
-    );
-    for (const dataSet of testNegative) {
-      test(`${dataSet.city} on ${dataSet.date}`, async () => {
-        const params = {
-          access_key: config.accessKey,
-          query: dataSet.city,
-          historical_date: dataSet.date,
-        };
-        const response = await api.get(endpoints.weather.historical, params);
-        expect(response.status()).toBe(400);
-        const data = await response.text();
-        console.log(data);
-      });
-    }
+  test("GET Historical data for no data", async () => {
+    const params = {
+      access_key: config.accessKey,
+      query: "",
+      historical_date: "",
+    };
+    const response = await api.get(endpoints.weather.historical, params);
+    const data = await response.json();
+    expect(response.status()).toBe(400);
+    const dataBody = await response.text();
+    expect(dataBody).toContain("error");
+    console.log(dataBody);
   });
+
   test.afterAll(async () => {
     await api.close();
   });

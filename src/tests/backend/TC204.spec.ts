@@ -42,4 +42,7 @@ test.describe("WeatherStack API - Historical Weather", () => {
       });
     }
   });
+  test.afterAll(async () => {
+    await api.close();
+  });
 });
