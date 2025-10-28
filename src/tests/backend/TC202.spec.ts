@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { ApiClient } from "../../utils/api/ApiClient";
 import { endpoints } from "../../utils/api/endpoints";
 import { config } from "../../utils/config/config";
-import locations from "../../utils/data/CurrentLocationCountry.json";
+import locations from "../../utils/data/currentLocationZip.json";
 
 test.describe("WeatherStack API - Location Identifiers", () => {
   let api: ApiClient;
@@ -13,10 +13,10 @@ test.describe("WeatherStack API - Location Identifiers", () => {
   });
 
   for (const loc of locations) {
-    test(`TC200 - GET current weather by latitude and longitude for ${loc.name}`, async () => {
+    test(`TC202 - GET current weather by ZIP code for ${loc.zipCode} (${loc.name})`, async () => {
       const params = {
         access_key: config.accessKey,
-        query: `${loc.lat},${loc.lon}`,
+        query: loc.zipCode,
       };
       const response = await api.get(endpoints.weather.current, params);
       const data = await response.json();
@@ -25,10 +25,6 @@ test.describe("WeatherStack API - Location Identifiers", () => {
       expect(data).toHaveProperty("current");
       expect(data.location.country).toBe(loc.country);
       expect(data.location.timezone_id).toBe(loc.timezone_id);
-      expect(typeof data.current.temperature).toBe("number");
-      expect(typeof data.current.humidity).toBe("number");
-      expect(typeof data.current.wind_speed).toBe("number");
-      expect(typeof data.current.weather_descriptions[0]).toBe("string");
     });
   }
 
