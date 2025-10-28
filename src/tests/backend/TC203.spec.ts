@@ -13,7 +13,7 @@ test.describe("WeatherStack API - Location Identifiers", () => {
   });
 
   for (const loc of locations) {
-    test(`TC203 - GET current weather by IP address for ${loc.zipCode} (${loc.name})`, async () => {
+    test(`TC203 - GET current weather by IP address for ${loc.ip} (${loc.name})`, async () => {
       const params = {
         access_key: config.accessKey,
         query: loc.ip,
