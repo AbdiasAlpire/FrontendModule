@@ -21,13 +21,11 @@ test.describe("WeatherStack API - Location Identifiers", () => {
     const data = await response.json();
 
     expect(data).toHaveProperty("location");
-    expect(data.location.name).toBe("Guttenberg");
+    expect(data.location.name).toBe("Cliffside Park");
     expect(data.location.country).toBe("United States of America");
     expect(data.location.region).toBe("New Jersey");
     expect(data).toHaveProperty("current");
     expect(typeof data.current.temperature).toBe("number");
-
-    console.log(`Temp in ${data.location.name}: ${data.current.temperature}°C`);
   });
 
   test("TC201: GET current weather by city and country", async () => {
@@ -47,6 +45,25 @@ test.describe("WeatherStack API - Location Identifiers", () => {
     expect(typeof data.current.temperature).toBe("number");
     expect(data.current).toHaveProperty("weather_descriptions");
     expect(Array.isArray(data.current.weather_descriptions)).toBe(true);
+  });
+
+  test("TC202: GET current weather by ZIP code", async () => {
+    const params = {
+      access_key: config.accessKey,
+      query: "10001",
+    };
+
+    const response = await api.get(endpoints.weather.current, params);
+    const data = await response.json();
+
+    expect(response.status()).toBe(200);
+    expect(data).toHaveProperty("location");
+    expect(data.location.name).toBe("New York");
+    expect(data.location.country).toBe("USA");
+    expect(data).toHaveProperty("current");
+    expect(typeof data.current.temperature).toBe("number");
+    expect(data.current).toHaveProperty("humidity");
+    expect(typeof data.current.humidity).toBe("number");
   });
 
   test.afterAll(async () => {
