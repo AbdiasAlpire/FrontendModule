@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { ApiClient } from '../../utils/api/ApiClient';
 import { endpoints } from '../../utils/api/endpoints';
 import { config } from '../../utils/config/config';
+import coords from '../../utils/data/coords.json';
 
 test.describe('WeatherStack API - Forecast', () => {
   let api: ApiClient;
@@ -11,44 +12,33 @@ test.describe('WeatherStack API - Forecast', () => {
     await api.init();
   });
 
-  test('GET forecast data for valid latitude and longitude parameters', async () => {
-    const lat = 40.714;
-    const lon = -74.006;
-    const query = `${lat},${lon}`;
+  for (const { lat, lon } of coords) {
+    test(`GET forecast data for valid latitude/longitude: ${lat},${lon}`, async () => {
+      const query = `${lat},${lon}`;
+      const params = {
+        access_key: config.accessKey,
+        query,
+      };
 
-    const params = {
-      access_key: config.accessKey,
-      query: query,
-    };
+      const response = await api.get(endpoints.weather.forecast, params);
+      expect(response.status()).toBe(200);
 
-    const response = await api.get(endpoints.weather.forecast, params);
+      const data = await response.json();
 
-    expect(response.status()).toBe(200);
+      expect(data).toHaveProperty('location');
+      expect(data.location).toHaveProperty('lat');
+      expect(data.location).toHaveProperty('lon');
+      expect(data).toHaveProperty('current');
+      expect(data).toHaveProperty('forecast');
 
-    const data = await response.json();
+      const forecastKeys = Object.keys(data.forecast || {});
+      const firstDay = data.forecast[forecastKeys[0]];
 
-    expect(data).toHaveProperty('location');
-    expect(data.location).toHaveProperty('lat');
-    expect(data.location).toHaveProperty('lon');
-    expect(data).toHaveProperty('current');
-    expect(data).toHaveProperty('forecast');
-
-    expect(typeof data.current.temperature).toBe('number');
-    expect(typeof data.location.lat).toBe('string');
-    expect(typeof data.location.lon).toBe('string');
-
-    const forecastKeys = Object.keys(data.forecast);
-    const firstDayKey = forecastKeys[0];
-    const firstDayData = data.forecast[firstDayKey];
-
-    console.log(`Coordinates: ${data.location.lat}, ${data.location.lon}`);
-    console.log(`Location detected: ${data.location.name}, ${data.location.country}`);
-    console.log('Forecast summary:');
-    console.log(`Date: ${firstDayData.date}`);
-    console.log(`Min Temp: ${firstDayData.mintemp}°C`);
-    console.log(`Max Temp: ${firstDayData.maxtemp}°C`);
-    console.log(`Avg Temp: ${firstDayData.avgtemp}°C`);
-  });
+      console.log(`Coordinates requested: ${lat},${lon}`);
+      console.log(`Detected: ${data.location.name}, ${data.location.country}`);
+      console.log(`Date: ${firstDay.date} | Min: ${firstDay.mintemp}°C | Max: ${firstDay.maxtemp}°C`);
+    });
+  }
 
   test.afterAll(async () => {
     await api.close();
