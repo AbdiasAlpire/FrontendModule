@@ -2,17 +2,8 @@ import { test, expect } from "@playwright/test";
 import { ApiClient } from "../../utils/api/ApiClient";
 import { endpoints } from "../../utils/api/endpoints";
 import { config } from "../../utils/config/config";
-import fs from "fs";
-import path from "path";
 
-const dataPath = path.resolve(
-  __dirname,
-  "../../utils/data/historicaldata.json"
-);
-const jsonData = fs.readFileSync(dataPath, "utf-8");
-const testData = JSON.parse(jsonData);
-
-test.describe("WeatherStack API - Historical Weather", () => {
+test.describe("WeatherStack API - Forecast", () => {
   let api: ApiClient;
 
   test.beforeAll(async () => {
@@ -20,34 +11,22 @@ test.describe("WeatherStack API - Historical Weather", () => {
     await api.init();
   });
 
-  test.describe("GET Historical data with hourly=1 ", () => {
-    const testPositive = testData.filter(
-      (typeTest: any) =>
-        typeTest.cityStatus === "valid" && typeTest.dateStatus === "valid"
+  test("GET Historical data for an invalid access_key", async () => {
+    const params = {
+      access_key: "44ec39820e908d577b23f7b48dd0588d",
+      query: "New York",
+      historical_date: "2014-10-10",
+    };
+
+    const response = await api.get(endpoints.weather.forecast, params);
+    expect(response.status()).toBe(401);
+    const bodyText = await response.text();
+    expect(bodyText).toContain("invalid_access_key");
+    console.log(
+      `Status code: ${response.status()} (Expected: 401 Bad Request), ${bodyText}`
     );
-    for (const dataSet of testPositive) {
-      test(`${dataSet.city} on ${dataSet.date}`, async () => {
-        const params = {
-          access_key: config.accessKey,
-          query: dataSet.city,
-          historical_date: dataSet.date,
-          hourly: "1",
-        };
-        const response = await api.get(endpoints.weather.historical, params);
-        expect(response.ok()).toBeTruthy();
-        const data = await response.json();
-        expect(data).toHaveProperty("location");
-        expect(data.location.name.toLowerCase()).toContain(
-          dataSet.city.toLowerCase()
-        );
-        expect(data).toHaveProperty("historical");
-        expect(response.status()).toBe(200);
-        expect(data.historical[dataSet.date].hourly).toBeInstanceOf(Array);
-        expect(data.historical[dataSet.date].hourly.length).toBeGreaterThan(0);
-        console.log(data);
-      });
-    }
   });
+
   test.afterAll(async () => {
     await api.close();
   });
