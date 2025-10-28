@@ -1,5 +1,3 @@
-// TC235 – Negative: GET forecast with empty query should fail (expected)
-
 import { test, expect } from '@playwright/test';
 import { ApiClient } from '../../utils/api/ApiClient';
 import { endpoints } from '../../utils/api/endpoints';
