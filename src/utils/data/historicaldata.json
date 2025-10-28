@@ -1,0 +1,98 @@
+[
+  {
+    "city": "New York",
+    "date": "2024-10-10",
+    "cityStatus": "valid",
+    "dateStatus": "valid"
+  },
+  {
+    "city": "London",
+    "date": "2024-09-20",
+    "cityStatus": "valid",
+    "dateStatus": "valid"
+  },
+  {
+    "city": "Buenos Aires",
+    "date": "2024-07-15",
+    "cityStatus": "valid",
+    "dateStatus": "valid"
+  },
+  {
+    "city": "Tokyo",
+    "date": "2024-06-10",
+    "cityStatus": "valid",
+    "dateStatus": "valid"
+  },
+  {
+    "city": "Tokyo",
+    "date": "2026-06-10",
+    "cityStatus": "valid",
+    "dateStatus": "invalid"
+  },
+  {
+    "city": "Cochabamba",
+    "date": "2000-10-12",
+    "cityStatus": "valid",
+    "dateStatus": "invalid"
+  },
+  {
+    "city": "New Zeland",
+    "date": "2024-13-12",
+    "cityStatus": "valid",
+    "dateStatus": "invalid"
+  },
+  {
+    "city": "Buenos Aires",
+    "date": "2023-15-38",
+    "cityStatus": "valid",
+    "dateStatus": "invalid"
+  },
+  {
+    "city": "Toysso",
+    "date": "2016-06-10",
+    "cityStatus": "invalid",
+    "dateStatus": "valid"
+  },
+  {
+    "city": "Cochbamba",
+    "date": "2020-10-12",
+    "cityStatus": "invalid",
+    "dateStatus": "valid"
+  },
+  {
+    "city": "New nocity",
+    "date": "2024-12-12",
+    "cityStatus": "invalid",
+    "dateStatus": "valid"
+  },
+  {
+    "city": "Good Aires",
+    "date": "2023-05-30",
+    "cityStatus": "invalid",
+    "dateStatus": "valid"
+  },
+  {
+    "city": "Toqyo",
+    "date": "20200-06-10",
+    "cityStatus": "invalid",
+    "dateStatus": "invalid"
+  },
+  {
+    "city": "Cchabamba",
+    "date": "2000-10-12",
+    "cityStatus": "invalid",
+    "dateStatus": "invalid"
+  },
+  {
+    "city": "Newseland",
+    "date": "204-13-12",
+    "cityStatus": "invalid",
+    "dateStatus": "invalid"
+  },
+  {
+    "city": "Buos Aires",
+    "date": "223-15-38",
+    "cityStatus": "invalid",
+    "dateStatus": "invalid"
+  }
+]
