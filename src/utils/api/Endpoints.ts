@@ -1,5 +1,8 @@
 export const endpoints = {
-    weather: {
-        current: '/current',
+	weather: {
+		current: '/current',
+    autocomplete: '/autocomplete',
+    historical: "/historical",
+    forecast: '/forecast',
     },
 };
