@@ -94,5 +94,29 @@
     "date": "223-15-38",
     "cityStatus": "invalid",
     "dateStatus": "invalid"
+  },
+  {
+    "city": "Lākana",
+    "date": "2024-10-10",
+    "cityStatus": "special",
+    "dateStatus": "valid"
+  },
+  {
+    "city": "นิวยอร์ก",
+    "date": "2024-11-10",
+    "cityStatus": "special",
+    "dateStatus": "valid"
+  },
+  {
+    "city": "ویتنام",
+    "date": "2024-10-11",
+    "cityStatus": "special",
+    "dateStatus": "valid"
+  },
+  {
+    "city": "N1c@r@Gu@",
+    "date": "2024-12-10",
+    "cityStatus": "special",
+    "dateStatus": "valid"
   }
 ]
