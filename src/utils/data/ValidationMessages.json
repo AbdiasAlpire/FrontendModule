@@ -17,6 +17,15 @@
                 "type": "request_failed",
                 "info": "Your API request failed. Please try again or contact support."
             }
+        },
+        "invalid_ip":{
+            "query": "125.125.125.125.0",
+            "success": false,
+            "error": {
+                "code": 615,
+                "type": "request_failed",
+                "info": "Your API request failed. Please try again or contact support."
+            }
         }
     }
 }
