@@ -35,6 +35,15 @@
                 "type": "request_failed",
                 "info": "Your API request failed. Please try again or contact support."
             }
+        },
+        "invalid_lat_lon":{
+            "query": "-37.386,-122.083",
+            "success": false,
+            "error": {
+                "code": 615,
+                "type": "request_failed",
+                "info": "Your API request failed. Please try again or contact support."
+            }
         }
     }
 }
