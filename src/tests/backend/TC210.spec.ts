@@ -23,11 +23,25 @@ test.describe('WeatherStack API - Forecast', () => {
         query: city,
       };
 
-      const response = await api.get(endpoints.weather.forecast, params);
+    const response = await api.get(endpoints.weather.forecast, params);
+    const data = await response.json();
 
-      expect(response.status()).toBe(400);
+    expect(response.status()).toBe(400);
 
-      console.log(`Status code: ${response.status()} (Expected: 400 Bad Request) Query: "${titleSafe}"`);
+    const expectedBody = {
+      success: false,
+      error: {
+        code: 615,
+        type: 'request_failed',
+        info: 'Your API request failed. Please try again or contact support.',
+      },
+    };
+
+    expect(data).toMatchObject(expectedBody);
+
+    console.log(
+      `Status code: ${response.status()} | error.code=${data.error?.code} | error.type=${data.error?.type} | error.info="${data.error?.info}"`
+    );
     });
   }
 

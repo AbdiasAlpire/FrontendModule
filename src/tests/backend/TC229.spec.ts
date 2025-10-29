@@ -11,10 +11,10 @@ test.describe('WeatherStack API - Forecast', () => {
     await api.init();
   });
 
-  test('GET forecast empty query should returns 400 and expected error response body', async () => {
+  test('GET forecast only blank spaces query returns 400 and expected reponse body', async () => {
     const params = {
       access_key: config.accessKey,
-      query: '',
+      query: '      ',
     };
 
     const response = await api.get(endpoints.weather.forecast, params);
@@ -25,9 +25,9 @@ test.describe('WeatherStack API - Forecast', () => {
     const expectedBody = {
       success: false,
       error: {
-        code: 601,
-        type: 'missing_query',
-        info: 'Please specify a valid location identifier using the query parameter.',
+        code: 615,
+        type: 'request_failed',
+        info: 'Your API request failed. Please try again or contact support.',
       },
     };
 
