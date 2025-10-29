@@ -13,7 +13,7 @@ test.describe("WeatherStack API - Location Identifiers", () => {
   });
 
   for (const loc of locations) {
-    test(`TC220 - GET current weather response in cientific units for ${loc.name}`, async () => {
+    test(`TC220 - GET current weather response in scientific units for ${loc.name}`, async () => {
       const params_cientific_unit = {
         access_key: config.accessKey,
         query: loc.name,
