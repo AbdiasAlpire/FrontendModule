@@ -12,10 +12,10 @@ test.describe("WeatherStack API - Location Identifiers", () => {
     await api.init();
   });
 
-  test(`TC217 - GET error response when query parameter is empty`, async () => {
+  test(`TC218 - GET error response for non-existent country`, async () => {
     const params = {
       access_key: config.accessKey,
-      query: validation_message.current.empty_query.query,
+      query: validation_message.current.invalid_country.query,
     };
     const response = await api.get(endpoints.weather.current, params);
     const data = await response.json();
@@ -23,9 +23,9 @@ test.describe("WeatherStack API - Location Identifiers", () => {
     expect(data).toHaveProperty("success");
     expect(data).toHaveProperty("error");
     expect(data.success).toBe(validation_message.current.empty_query.success);
-    expect(data.error.code).toBe(validation_message.current.empty_query.error.code);
-    expect(data.error.type).toBe(validation_message.current.empty_query.error.type);
-    expect(data.error.info).toBe(validation_message.current.empty_query.error.info);
+    expect(data.error.code).toBe(validation_message.current.invalid_country.error.code);
+    expect(data.error.type).toBe(validation_message.current.invalid_country.error.type);
+    expect(data.error.info).toBe(validation_message.current.invalid_country.error.info);
   });
 
   test.afterAll(async () => {

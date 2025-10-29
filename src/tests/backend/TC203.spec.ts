@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { ApiClient } from "../../utils/api/ApiClient";
-import { endpoints } from "../../utils/api/endpoints";
+import { endpoints } from "../../utils/api/Endpoints";
 import { config } from "../../utils/config/config";
 import locations from "../../utils/data/CurrentLocationCountry.json";
 

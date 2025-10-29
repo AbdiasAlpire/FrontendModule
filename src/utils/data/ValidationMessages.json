@@ -1,11 +1,21 @@
 {
     "current":{
         "empty_query":{
+            "query": "",
             "success": false,
             "error": {
                 "code": 601,
                 "type": "missing_query",
                 "info": "Please specify a valid location identifier using the query parameter."
+            }
+        },
+        "invalid_country":{
+            "query": "Franciaaaaaaaaaa",
+            "success": false,
+            "error": {
+                "code": 615,
+                "type": "request_failed",
+                "info": "Your API request failed. Please try again or contact support."
             }
         }
     }
