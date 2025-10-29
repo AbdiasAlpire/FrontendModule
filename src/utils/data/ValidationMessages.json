@@ -1,0 +1,49 @@
+{
+    "current":{
+        "empty_query":{
+            "query": "",
+            "success": false,
+            "error": {
+                "code": 601,
+                "type": "missing_query",
+                "info": "Please specify a valid location identifier using the query parameter."
+            }
+        },
+        "invalid_country":{
+            "query": "Franciaaaaaaaaaa",
+            "success": false,
+            "error": {
+                "code": 615,
+                "type": "request_failed",
+                "info": "Your API request failed. Please try again or contact support."
+            }
+        },
+        "invalid_ip":{
+            "query": "125.125.125.125.0",
+            "success": false,
+            "error": {
+                "code": 615,
+                "type": "request_failed",
+                "info": "Your API request failed. Please try again or contact support."
+            }
+        },
+        "invalid_zip":{
+            "query": "5000000000000000000000000",
+            "success": false,
+            "error": {
+                "code": 615,
+                "type": "request_failed",
+                "info": "Your API request failed. Please try again or contact support."
+            }
+        },
+        "invalid_lat_lon":{
+            "query": "-37.386,-122.083",
+            "success": false,
+            "error": {
+                "code": 615,
+                "type": "request_failed",
+                "info": "Your API request failed. Please try again or contact support."
+            }
+        }
+    }
+}
