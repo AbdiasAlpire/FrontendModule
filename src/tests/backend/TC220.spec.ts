@@ -14,24 +14,33 @@ test.describe("WeatherStack API - Location Identifiers", () => {
 
   for (const loc of locations) {
     test(`TC220 - GET current weather response in scientific units for ${loc.name}`, async () => {
-      const params_cientific_unit = {
+      const params_scientific_unit = {
         access_key: config.accessKey,
         query: loc.name,
-        units: "s"
+        units: "s",
       };
       const params_metric_unit = {
         access_key: config.accessKey,
         query: loc.name,
       };
-      const response_cientific_unit = await api.get(endpoints.weather.current, params_cientific_unit);
-      const data_cientific_unit = await response_cientific_unit.json();
-      const response_metric_unit = await api.get(endpoints.weather.current, params_metric_unit);
+      const response_scientific_unit = await api.get(
+        endpoints.weather.current,
+        params_scientific_unit
+      );
+      const data_scientific_unit = await response_scientific_unit.json();
+      const response_metric_unit = await api.get(
+        endpoints.weather.current,
+        params_metric_unit
+      );
       const data_metric_unit = await response_metric_unit.json();
-      expect(response_cientific_unit.status(), "Status code").toBe(200);
-      expect(data_cientific_unit).toHaveProperty("current");
-      expect(data_cientific_unit.current).toHaveProperty("temperature");
-      expect(data_cientific_unit.current.temperature).toBeCloseTo((data_metric_unit.current.temperature+273.15),0);
-      expect(data_cientific_unit.location.country).toBe(loc.country);
+      expect(response_scientific_unit.status(), "Status code").toBe(200);
+      expect(data_scientific_unit).toHaveProperty("current");
+      expect(data_scientific_unit.current).toHaveProperty("temperature");
+      expect(data_scientific_unit.current.temperature).toBeCloseTo(
+        data_metric_unit.current.temperature + 273.15,
+        0
+      );
+      expect(data_scientific_unit.location.country).toBe(loc.country);
     });
   }
 
