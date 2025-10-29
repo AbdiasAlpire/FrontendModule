@@ -30,7 +30,6 @@ test.describe("WeatherStack API - Historical Weather", () => {
         expect(status).toBe(200);
         const data = await response.json();
         expect(data).toHaveProperty("location");
-        expect(data).toHaveProperty("location");
         expect(data).toHaveProperty("request");
         expect(data.request.type).toBe("LatLon");
         console.log(
